@@ -19,10 +19,10 @@ export class InterceptorUnauthorized implements HttpInterceptor {
     return next.handle(request).pipe( tap(() => {},
       (err: any) => {
       if (err instanceof HttpErrorResponse) {
-        if (err.status !== 404) {
+        if (err.status !== 500) {
          return;
         }
-        this.router.navigate(['notfound']);
+        this.router.navigate(['error']);
       }
     }));
   }
