@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-const providers: any[] = [];
+import { IngredientService } from './ingredient/service/ingredient.service';
 
 @NgModule({
   declarations: [
@@ -15,17 +14,16 @@ const providers: any[] = [];
     BrowserModule,
     AppRoutingModule
   ],
-  providers: providers,
+  providers: [IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
 @NgModule({})
-export class IngredientSharedModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AppModule,
-      providers: providers
+export class IngredientSharedModule{
+  static forRoot(): ModuleWithProviders{
+    return{
+      ngModule: AppModule, providers : []
     }
   }
 }
