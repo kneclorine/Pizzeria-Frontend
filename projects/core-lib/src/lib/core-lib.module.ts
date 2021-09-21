@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { SpinnerComponent } from './spinner/spinner.component';
 import { CoreLibComponent } from './core-lib.component';
 import { MenuComponent } from './menu/menu.component';
 
@@ -7,12 +8,15 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     CoreLibComponent,
-    MenuComponent
+    MenuComponent,
+    SpinnerComponent
   ],
   imports: [
   ],
   exports: [
-    CoreLibComponent
+    CoreLibComponent,
+    MenuComponent,
+    SpinnerComponent
   ]
 })
 export class CoreLibModule { }

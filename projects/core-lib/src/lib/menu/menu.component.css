@@ -1,0 +1,14 @@
+
+.menu {
+    background-color: red;
+    color: white;
+    width: 15%;
+    margin-left: 0em;
+    padding: 5%;
+    height: 29rem;
+}
+
+li {
+    list-style: none;
+    margin: 0.1rem;
+}

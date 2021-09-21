@@ -11,4 +11,5 @@ export * from './lib/interceptor/interceptordenied';
 export * from './lib/interceptor/interceptorunauthorized';
 export * from './lib/services/authorizationobserver';
 export * from './lib/services/authorize';
-
+export * from './lib/menu/menu.component';
+export * from './lib/spinner/spinner.component'

@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IngredientSharedModule } from 'projects/ingredient/src/app/app.module';
 import { UserSharedModule } from 'projects/user/src/app/app.module';
+import { CoreLibModule } from 'core-lib';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { UserSharedModule } from 'projects/user/src/app/app.module';
     BrowserModule,
     AppRoutingModule,
     IngredientSharedModule.forRoot(),
-    UserSharedModule.forRoot()
+    UserSharedModule.forRoot(),
+    CoreLibModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
