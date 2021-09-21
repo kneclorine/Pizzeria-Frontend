@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IngredientService } from './ingredient/service/ingredient.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ingredient';
+
+  constructor (private ingredientService: IngredientService) {
+    
+  }
 }
