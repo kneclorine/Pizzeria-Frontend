@@ -7,11 +7,16 @@ import { DecoratorService } from "./decoratorservice";
 export class HttpInterceptorAuth implements HttpInterceptor {    
    
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const autorizationObserver = DecoratorService.getAutorizationObserver();
+        
+        const autorizationObserver = DecoratorService.getAuthorizationObserver();
         if (autorizationObserver.addToken) {
-            const modified = req.clone({ setHeaders: { 'X-Custom-Header-1': '1' } });            
-            autorizationObserver.addToken = false;
-            return next.handle(modified);
+                const token: string|null = localStorage.getItem('token');
+                if(token){
+                    const modified = req.clone({ setHeaders: { 'Authorization': `Bearer ${token}` } });
+                    autorizationObserver.addToken = false;
+                    return next.handle(modified);          
+                }
+                
         }
         return next.handle(req);
     }

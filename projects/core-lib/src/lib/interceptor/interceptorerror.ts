@@ -11,7 +11,7 @@ import {tap} from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Injectable()
-export class InterceptorUnauthorized implements HttpInterceptor {
+export class InterceptorError implements HttpInterceptor {
 
   constructor(private router: Router) {}
 

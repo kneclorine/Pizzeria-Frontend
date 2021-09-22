@@ -1,34 +1,41 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpUserService } from './services/userservices';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { User } from './userinterface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy{
-  constructor(private httpUserService: HttpUserService){}
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
+export class AppComponent {
+  constructor(private httpUserService: HttpUserService) { 
+    
   }
-  title = 'user';
+  
 
+  
   userForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('',  Validators.required),
-    email: new FormControl('',  [Validators.required, Validators.email]),
-    password: new FormControl('',Validators.required)
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
   });
-
-  destroy$: Subject<boolean> = new Subject<boolean>();
-  HttpUserService: any;
+  user: User={
+    name: '',
+    lastName: '',
+    email: '',
+    password: ''
+  }
+  
 
   onSubmit() {
-    this.HttpUserService.addUser(this.userForm.value).pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.user.name = this.userForm.get('firstName')?.value;
+    this.user.lastName = this.userForm.get('lastName')?.value;
+    this.user.email = this.userForm.get('email')?.value;
+    this.user.password = this.userForm.get('password')?.value;
+    const observer = this.httpUserService.addUser(JSON.parse(JSON.stringify(this.user)));
+    const unsuscribe = observer.subscribe(() => {
       this.userForm.reset();
     });
   }
