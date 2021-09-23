@@ -3,29 +3,29 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { Router, Routes } from '@angular/router';
 import { INTERCEPTORS } from 'core-lib'; 
 import { DecoratorService } from 'core-lib';
 import { AuthorizationObserver } from 'core-lib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpUserService } from './services/userservices';
+import { LoginComponent } from './login/login.component';
 
-/*const providers: any[] = [HttpUserService,{
-  provide: HTTP_INTERCEPTORS,
-  useClass: HttpInterceptorAuth,
-  multi: true
-}, AuthorizationObserver];*/
 const providers:any[] = [INTERCEPTORS, AuthorizationObserver]
-
+const routes: Routes =[
+  
+];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [providers],
 
@@ -37,7 +37,7 @@ export class AppModule {
 
 @NgModule({})
 export class UserSharedModule {
-  constructor(){}
+  constructor(private router: Router){}
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: AppModule,
