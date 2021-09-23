@@ -11,16 +11,16 @@ import { IngredientService } from './service/ingredient.service';
 })
 export class IngredientComponent implements OnInit, OnDestroy {
 
-  private dispose: Subscription = ;
+  private dispose: Subscription | null = null;
   public ingredients = new Array<Ingredient>();
-  public selectedIngredient: Ingredient= ;
+  public selectedIngredient: Ingredient | null= null;
 
   constructor(private ingredientService: IngredientService) { }
   
   ngOnInit(): void {
     this.dispose = this.ingredientService.getAll().subscribe((data)=>this.ingredients = data);
   }
-
+  
   ngOnDestroy(): void {
     this.dispose && this.dispose.unsubscribe();
   }

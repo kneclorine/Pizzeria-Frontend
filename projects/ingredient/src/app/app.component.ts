@@ -9,7 +9,7 @@ import { IngredientService } from './ingredient/service/ingredient.service';
 export class AppComponent {
   title = 'ingredient';
 
-  constructor (private ingredientService: IngredientService) {
+  constructor () {
     
   }
 }
