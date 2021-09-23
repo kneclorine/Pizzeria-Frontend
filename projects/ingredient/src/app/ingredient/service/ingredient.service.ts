@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Authorize } from 'projects/core-lib/src/public-api';
+import { environment } from '../../../../../../src/environments/environment';
 import { Observable } from 'rxjs';
 import { Ingredient } from '../ingredient';
 
@@ -11,12 +12,12 @@ import { Ingredient } from '../ingredient';
 @Authorize()
 export class IngredientService {
 
-  private url: string = 'http://localhost:9999/ingredients';
+  private url: string = environment.url;
 
-    constructor(private httpClient: HttpClient) { }
+    constructor(public http: HttpClient) { }
 
-    create(ingredient: Ingredient): Observable<Ingredient> {
-        return this.httpClient.post<Ingredient>(`${this.url}`, ingredient);
-    }
+    getAll(): Observable<Ingredient []>{
+      return <Observable<Ingredient[]>> this.http.get(`${this.url}/ingredients`);
+   }
 
 }
