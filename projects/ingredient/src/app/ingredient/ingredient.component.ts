@@ -17,6 +17,8 @@ export class IngredientComponent implements OnInit, OnDestroy {
 
   constructor(private ingredientService: IngredientService) { }
   
+  
+
   ngOnInit(): void {
     this.dispose = this.ingredientService.getAll().subscribe((data)=>this.ingredients = data);
   }
