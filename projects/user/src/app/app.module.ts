@@ -10,6 +10,7 @@ import { AuthorizationObserver } from 'core-lib';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const providers:any[] = [INTERCEPTORS, AuthorizationObserver]
 const routes: Routes =[
@@ -18,7 +19,8 @@ const routes: Routes =[
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
