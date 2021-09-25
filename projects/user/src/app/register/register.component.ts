@@ -19,7 +19,6 @@ import userStorage from 'projects/core-lib/src/lib/user/userStorage';
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required),
-    phone : new FormControl ('', Validators.required)
   });
   onSubmit() {
     const observer = this.httpUserService.addUser(this.userForm.value);
