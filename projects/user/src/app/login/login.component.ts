@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   
 
   onSubmit() {
-    this.userLogin.email = this.userForm.get('email')?.value;
+    /*this.userLogin.email = this.userForm.get('email')?.value;
     this.userLogin.password = this.userForm.get('password')?.value;
     const observer = this.httpUserService.login(this.userLogin);
     const unsuscribe = observer.subscribe((data) => {
@@ -33,11 +33,7 @@ export class LoginComponent implements OnInit {
       if(data){
         localStorage.setItem('user',JSON.stringify(data));
         this.router.navigate(["login"]);
-      }
-    },(error)=>{
-       console.log(error);
-    }
-    );
+      }*/
   }
 
   ngOnInit(): void {
