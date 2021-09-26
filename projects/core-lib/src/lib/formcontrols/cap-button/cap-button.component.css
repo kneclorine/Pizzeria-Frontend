@@ -15,3 +15,8 @@ button{
     letter-spacing: normal;
     text-align: center;
 }
+input:disabled {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    color: #666;
+  }

@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./cap-button.component.css']
 })
 export class CapButtonComponent implements OnInit {
-
+  @Input() disabled: boolean = false;
   @Input() buttonConfig: any;
   @Input() text: string = '';
   @Output() textBtnClickEmt: EventEmitter<string> = new EventEmitter<string>();
@@ -16,6 +16,9 @@ export class CapButtonComponent implements OnInit {
 
   onTextBtnClick() {
     this.textBtnClickEmt.emit();
+  }
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
 }

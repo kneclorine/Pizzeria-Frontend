@@ -17,8 +17,11 @@ import userStorage from 'projects/core-lib/src/lib/user/userStorage';
   userForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
+    politics: new FormControl('',Validators.requiredTrue),
+    offers: new FormControl('', Validators.requiredTrue)
+
   });
   onSubmit() {
     const observer = this.httpUserService.addUser(this.userForm.value);
