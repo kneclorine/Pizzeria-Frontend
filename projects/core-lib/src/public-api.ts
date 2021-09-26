@@ -13,4 +13,5 @@ export * from './lib/config/config';
 export * from './lib/formcontrols/cap-input/cap-input.component'
 export * from './lib/formcontrols/cap-button/cap-button.component'
 export * from './lib/formcontrols/cap-checkbox/cap-checkbox.component'
+export * from './lib/services/indexeddb.service'
 
