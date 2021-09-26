@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IngredientRoutingModule } from './ingredient-routing.module';
+import { DecoratorService } from 'core-lib';
 
 @NgModule({
   declarations: [],
@@ -9,4 +10,8 @@ import { IngredientRoutingModule } from './ingredient-routing.module';
     IngredientRoutingModule
   ]
 })
-export class IngredientModule { }
+export class IngredientModule { 
+  constructor(decoratorService: DecoratorService) {
+    
+  }
+}
