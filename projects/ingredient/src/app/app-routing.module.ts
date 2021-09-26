@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
 const routes: Routes = [
   {
     path: 'ingredient',
-    loadChildren: () => import('./ingredient/ingredient.module').then(m => m.IngredientModule)
+    loadChildren: () => import('./ingredient/ingredient.module').then(m => m.IngredientModule),
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['ADMIN']
+      }//TODO Terminar permisos y menú.
+    }
   }
 ];
 

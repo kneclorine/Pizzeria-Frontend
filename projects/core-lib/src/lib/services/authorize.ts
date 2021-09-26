@@ -5,7 +5,7 @@ function decorateClass(target: Function) {
     for (let method of methods) {
         const fn = target.prototype[method];
         target.prototype[method] = function (...args: []) {
-            const autozitationObserver = DecoratorService.getAutorizationObserver();
+            const autozitationObserver = DecoratorService.getAuthorizationObserver();
             autozitationObserver.addToken = true;               
             const observer = fn.apply(this, args)                          
             return observer
@@ -15,7 +15,7 @@ function decorateClass(target: Function) {
 function decorateMethod(target: Function, propertyKey: string, descriptor: PropertyDescriptor) {
     const fn = descriptor.value;
     descriptor.value = function (...args: []) {
-        const autozitationObserver = DecoratorService.getAutorizationObserver();
+        const autozitationObserver = DecoratorService.getAuthorizationObserver();
         autozitationObserver.addToken = true;               
         const observer = fn.apply(this, args)            
         return observer

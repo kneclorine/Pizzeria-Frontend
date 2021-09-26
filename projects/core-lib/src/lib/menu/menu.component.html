@@ -1,5 +1,7 @@
-<ul class="menu">
-  <li><a routerLink='/pizzas'>Pizzas</a></li>
-  <li><a routerLink='/ingredients'>Ingredients</a></li>
-  <li><a routerLink='/logout'>Logout</a></li>
-</ul>
+<nav class="menu">
+  <ul >
+    <li><a routerLink="/pizza" routerLinkActive="active">Pizzas</a></li>
+    <li *ngxPermissionsOnly="['ADMIN']"><a routerLink="/ingredient" routerLinkActive="active">Ingredients</a></li>
+    <li><a routerLink="/logout" routerLinkActive="active">Logout</a></li>
+  </ul>
+</nav>

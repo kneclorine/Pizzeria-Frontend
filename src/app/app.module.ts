@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { IngredientSharedModule } from 'projects/ingredient/src/app/app.module';
 import { UserSharedModule } from 'projects/user/src/app/app.module';
 import { CoreLibModule } from 'core-lib';
-
+import { InjectorDecorator } from 'projects/core-lib/src/public-api';
 
 @NgModule({
   declarations: [
@@ -23,4 +23,8 @@ import { CoreLibModule } from 'core-lib';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(injectorDecorator: InjectorDecorator) {
+
+  }
+}

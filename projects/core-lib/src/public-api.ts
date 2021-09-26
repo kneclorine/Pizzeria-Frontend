@@ -13,3 +13,6 @@ export * from './lib/services/authorizationobserver';
 export * from './lib/services/authorize';
 export * from './lib/menu/menu.component';
 export * from './lib/spinner/spinner.component'
+export * from './lib/services/loading.service'
+export * from './lib/decorators/injectorDecorator'
+export * from './lib/decorators/spinnerDecorator'
