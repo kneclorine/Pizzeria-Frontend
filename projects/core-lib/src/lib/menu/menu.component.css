@@ -1,11 +1,28 @@
 
 .menu {
     background-color: red;
-    color: white;
     width: 15%;
-    margin-left: 0em;
+    margin-left: 0rem;
+    margin-right: 1rem;
     padding: 5%;
-    height: 29rem;
+    min-height: 25rem;
+    float: left;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+a:link {
+    color:white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: lightgrey;
 }
 
 li {
