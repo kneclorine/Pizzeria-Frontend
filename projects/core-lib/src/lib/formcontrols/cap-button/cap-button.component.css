@@ -1,0 +1,22 @@
+button{
+    width: 21.4375rem;
+    height: 2.875rem;
+    margin: 2.5rem 0 0 0.125rem;
+    padding: 0.6875rem 2.2687rem 0.75rem 2.8375rem;
+    border-radius: 5px;
+    background-color: var(--red-red-600);
+    color: var(--white);
+    font-family: Verdana;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+input:disabled {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    color: #666;
+  }
