@@ -4,7 +4,7 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 
 const routes: Routes = [
   {
-    path: 'ingredient',
+    path: 'ingredients',
     loadChildren: () => import('./ingredient/ingredient.module').then(m => m.IngredientModule),
     canActivate: [NgxPermissionsGuard],
     data: {

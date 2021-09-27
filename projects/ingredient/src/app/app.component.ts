@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgxPermissionsService } from 'ngx-permissions';
-import { IngredientService } from './ingredient/service/ingredient.service';
 
 @Component({
   selector: 'app-root',
@@ -24,4 +23,5 @@ export class AppComponent implements OnInit {
       this.permissionsService.loadPermissions(permissions);
     }*/
   }
+  
 }
