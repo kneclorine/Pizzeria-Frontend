@@ -15,7 +15,7 @@ export class IngredientService {
   private url: string = environment.url;
 
     constructor(public http: HttpClient) { }
-
+    
     getAll(): Observable<Ingredient []>{
       return <Observable<Ingredient[]>> this.http.get(`${this.url}/ingredients`);
    }
