@@ -1,7 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationObserver } from 'core-lib';
 import { DecoratorService } from 'core-lib';
 import { INTERCEPTORS } from 'projects/core-lib/src/public-api';
@@ -12,20 +12,15 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 
 const providers: any = [INTERCEPTORS, AuthorizationObserver]
 
-const routes: Routes = [
-  { path: 'ingredients', component: IngredientComponent },
-  { path: '**', redirectTo: '/' }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
     IngredientComponent
-  ],
+  ],  
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    HttpClientModule
   ],
   providers: [providers],
   bootstrap: [AppComponent]
