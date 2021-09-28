@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Cloudinary} from '@cloudinary/url-gen';
 
+import { cloud_name } from '../config/config';
+
 const cld = new Cloudinary({
   cloud: {
-     cloudName: process.env.cloud_name
+     cloudName: cloud_name
   }
 });
 
@@ -13,7 +15,7 @@ const cld = new Cloudinary({
 
 export class CloudinaryService {
 
-  static getImage(publicId: string, ext: string){
-    return cld.image(`${publicId}.${ext}`);
+  static getImageUrl(publicId: string, ext: string): string{
+    return cld.image(`${publicId}.${ext}`).toURL();
   }
 }
