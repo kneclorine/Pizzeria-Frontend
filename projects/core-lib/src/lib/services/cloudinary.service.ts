@@ -13,7 +13,7 @@ const cld = new Cloudinary({
 
 export class CloudinaryService {
 
-  static url(publicId: string, ext: string){
+  static getImage(publicId: string, ext: string){
     return cld.image(`${publicId}.${ext}`);
   }
 }
