@@ -7,3 +7,6 @@ input{
     border: solid 1px var(--gray-gray-500);
     background-color: var(--white);
 }
+input::placeholder{
+    padding-left: 1em;
+}

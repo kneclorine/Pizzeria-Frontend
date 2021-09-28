@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CapButtonComponent } from './formcontrols/cap-button/cap-button.component';
 import { CapCheckboxComponent } from './formcontrols/cap-checkbox/cap-checkbox.component';
+import { CapImgComponent } from './formcontrols/cap-img/cap-img.component';
 import { CapInputComponent } from './formcontrols/cap-input/cap-input.component';
 import { MenuComponent } from './menu/menu.component';
+import IndexeddbService from './services/indexeddb.service';
 
 
 
@@ -12,6 +14,7 @@ import { MenuComponent } from './menu/menu.component';
     CapInputComponent,
     CapButtonComponent,
     CapCheckboxComponent,
+    CapImgComponent,
   ],
   imports: [
   ],
@@ -20,6 +23,7 @@ import { MenuComponent } from './menu/menu.component';
     CapInputComponent,
     CapButtonComponent,
     CapCheckboxComponent,
+    CapImgComponent,
   ]
 })
 export class CoreLibModule { 

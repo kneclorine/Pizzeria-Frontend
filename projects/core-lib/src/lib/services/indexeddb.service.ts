@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {openDB } from 'idb';
-
+/*
  //IndexedDB
 declare let db: any;
 
@@ -8,14 +8,14 @@ declare let db: any;
   providedIn: 'root'
 })
 export class IndexeddbService {
-  public storagename = "TokensDB";
+  private storagename = "TokensDB";
   constructor() { }
 
   add(keyname: any, value: any) {
     return new Promise(async(resolve, reject) => {
       if (db != undefined) {
-        const request = await db.transaction([this.storagename], "readwrite")
-          .objectStore(this.storagename).put(keyname, value);
+        const request = await db.transaction(["TokensDB"], "readwrite")
+          .objectStore("TokensDB").put(keyname, value);
         request.onsuccess = await function (event: any) {
           if (event.target.result) {
             console.log("success")
@@ -32,8 +32,8 @@ export class IndexeddbService {
   get (keyname: any) {
     return new Promise(async(resolve, reject) => {
       if (db != undefined) {
-        const request = await db.transaction([this.storagename], "readwrite")
-          .objectStore(this.storagename).get(keyname);
+        const request = await db.transaction(["TokensDB"], "readwrite")
+          .objectStore("TokensDB").get(keyname);
         request.onsuccess = await function (event: any) {
           if (event.target.result) {
             console.log("success")
@@ -50,8 +50,8 @@ export class IndexeddbService {
   delete (keyname: any) {
     return new Promise(async(resolve, reject) => {
       if (db != undefined) {
-        const request = await db.transaction([this.storagename], "readwrite")
-          .objectStore(this.storagename).delete(keyname);
+        const request = await db.transaction(["TokensDB"], "readwrite")
+          .objectStore("TokensDB").delete(keyname);
         request.onsuccess = await function (event: any) {
           if (event.target.result) {
             console.log("success")
@@ -64,33 +64,37 @@ export class IndexeddbService {
       }
     });
   }
-}
-
+}*/
+//export default new IndexeddbService();
 // IDB Jake Archibald
-export function createDB(database: string, ...stores: string[]) {
-  openDB(database, 1, {
-      upgrade(db) {
-          stores.forEach(
-              store => db.createObjectStore(store)
-          );
-      },
-  });
-}
+class IndexeddbService{
+  constructor(){}
+    createDB(database: string, ...stores: string[]) {
+    openDB(database, 1, {
+        upgrade(db) {
+            stores.forEach(
+                store => db.createObjectStore(store)
+            );
+        },
+    });
+  }
 
-export async function addItem(database: string, store: string, data: any, key: string) {
-  const db = await openDB(database, 1);
-  db.add(store, data, key).catch(err => console.log('Error:', err));
-  db.close();
-}
+  async addItem(database: string, store: string, data: any, key: string) {
+    const db = await openDB(database, 1);
+    db.add(store, data, key).catch(err => console.log('Error:', err));
+    db.close();
+  }
 
-export async function getItem(database: string, store: string, key: string) {
-  const db = await openDB(database, 1);
-  db.get(store, key).then(console.log);
-  db.close();
-}
+  async getItem(database: string, store: string, key: string) {
+    const db = await openDB(database, 1);
+    db.get(store, key).then(console.log);
+    db.close();
+  }
 
-export async function clearStore(database: string, store: string) {
-  const db = await openDB(database, 1);
-  db.clear(store);
-  db.close();
-} 
+  async clearStore(database: string, store: string) {
+    const db = await openDB(database, 1);
+    db.clear(store);
+    db.close();
+  }
+}
+export default new IndexeddbService;

@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Self, Optional } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 @Component({
   selector: 'cap-input',
   templateUrl: './cap-input.component.html',
   styleUrls: ['./cap-input.component.css']
 })
-export class CapInputComponent implements OnInit {
+export class CapInputComponent implements OnInit, ControlValueAccessor{
+
   @Input() disabled: boolean = false;
   @Input() label: string = '';
   @Input() placeholder: string = '';
@@ -25,7 +26,7 @@ export class CapInputComponent implements OnInit {
   }
 
   ngOnInit() {}
-
+  
   writeValue(value: any): void {
     this.value = value;
   }
@@ -43,6 +44,10 @@ export class CapInputComponent implements OnInit {
     this.onTouched = fn;
   }
 
-  private onChange() {}
-  private onTouched() {}
+  onChange(event: any) {
+    if (event){
+      this.value = event;
+    }
+  }
+  onTouched() {}
 }
