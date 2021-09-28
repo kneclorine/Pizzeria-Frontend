@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {CloudinaryModule} from '@cloudinary/angular';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IngredientSharedModule } from 'projects/ingredient/src/app/app.module';
 import { UserSharedModule } from 'projects/user/src/app/app.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,8 @@ import { UserSharedModule } from 'projects/user/src/app/app.module';
     BrowserModule,
     AppRoutingModule,
     IngredientSharedModule.forRoot(),
-    UserSharedModule.forRoot()
+    UserSharedModule.forRoot(),
+    CloudinaryModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
