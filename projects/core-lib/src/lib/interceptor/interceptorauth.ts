@@ -2,12 +2,15 @@ import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } fro
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { UserDTO } from "../user/userDTO";
-import userStorage from "../user/userStorage";
 import { DecoratorService } from "./decoratorservice";
+import  IndexeddbService  from "../services/indexeddb.service";
+
 @Injectable({ providedIn: 'root' })
 export class HttpInterceptorAuth implements HttpInterceptor {
+    constructor(){
+    }
     private async setAuthorization(req: HttpRequest<any>): Promise<HttpRequest<any>> {
-        const userDTO: UserDTO = await userStorage.getUser();
+        const userDTO: UserDTO = await IndexeddbService.getUser();
         return req.clone({ setHeaders: { 'Authorization': `${userDTO.type} ${userDTO.token}` } });
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {CloudinaryModule} from '@cloudinary/angular';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IngredientSharedModule } from 'projects/ingredient/src/app/app.module';
@@ -18,8 +20,8 @@ import { InjectorDecorator, SpinnerComponent } from 'projects/core-lib/src/publi
     AppRoutingModule,
     IngredientSharedModule.forRoot(),
     UserSharedModule.forRoot(),
-    CoreLibModule
-
+    CoreLibModule,
+    CloudinaryModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
