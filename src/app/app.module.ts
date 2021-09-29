@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { IngredientSharedModule } from 'projects/ingredient/src/app/app.module';
 import { UserSharedModule } from 'projects/user/src/app/app.module';
 import { CoreLibModule } from 'core-lib';
+import { CapImguploadComponent } from 'projects/core-lib/src/lib/formcontrols/cap-imgupload/cap-imgupload.component';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { CoreLibModule } from 'core-lib';
     IngredientSharedModule.forRoot(),
     UserSharedModule.forRoot(),
     CoreLibModule,
-    CloudinaryModule 
+    CloudinaryModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
