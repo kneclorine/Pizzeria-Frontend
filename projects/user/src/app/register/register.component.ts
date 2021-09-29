@@ -41,7 +41,7 @@ import { User } from '../userinterface';
     const observer = this.httpUserService.addUser(this.user);
     const unsuscribe = observer.subscribe((data) => {
       IndexeddbService.removeUser();
-      IndexeddbService.addUser(data.token);
+      IndexeddbService.addUser(data);
       this.router.navigate(["login"]);
     });
   }

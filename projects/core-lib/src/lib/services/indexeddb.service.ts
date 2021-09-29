@@ -8,7 +8,7 @@ import { del, get, set } from 'idb-keyval';
 class IndexeddbService{
   private  key: string = 'user';
 
-  async addUser( data: string) {
+  async addUser( data: any) {
      await set(this.key, data);
   }
 
