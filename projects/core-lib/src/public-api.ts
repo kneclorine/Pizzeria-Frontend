@@ -15,4 +15,4 @@ export * from './lib/formcontrols/cap-button/cap-button.component';
 export * from './lib/formcontrols/cap-checkbox/cap-checkbox.component';
 export * from './lib/services/indexeddb.service';
 export * from './lib/formcontrols/cap-img/cap-img.component';
-
+export * from './lib/spinner/spinner.component';
