@@ -4,7 +4,6 @@ import { CapCheckboxComponent } from './formcontrols/cap-checkbox/cap-checkbox.c
 import { CapImgComponent } from './formcontrols/cap-img/cap-img.component';
 import { CapInputComponent } from './formcontrols/cap-input/cap-input.component';
 import { MenuComponent } from './menu/menu.component';
-import IndexeddbService from './services/indexeddb.service';
 
 
 
