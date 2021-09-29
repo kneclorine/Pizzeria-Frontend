@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from './enviroment';
 
 @Component({
   selector: 'cap-imgupload',
@@ -24,10 +25,14 @@ export class CapImguploadComponent {
       const formData = new FormData();
       formData.append("thumbnail", file);
 
-      const upload$ = this.http.post("/api/v1/images/", formData);
+      const upload$ = this.http.post(environment.url + "/api/v1/images", formData);
       upload$.subscribe((data)=>{
-        //Obtener uuid
+        //Que se hace con el uuid
       });
     }
+  }
+
+  deleteFile(){
+    this.imgURL = '';
   }
 }
