@@ -1,53 +1,28 @@
-import { Component, OnInit, Input, Self, Optional, Output, EventEmitter } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { Component,Input,  } from '@angular/core';
+import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { InputControl } from 'projects/core-lib/src/lib/interfaces/inputcontrol';
 @Component({
   selector: 'cap-input',
   templateUrl: './cap-input.component.html',
   styleUrls: ['./cap-input.component.css']
 })
-export class CapInputComponent implements OnInit, ControlValueAccessor{
+export class CapInputComponent{
 
-  @Input() disabled: boolean = false;
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type: 'text' | 'email' | 'password' = 'text';
+  @Input() inputcontrol: InputControl |any; 
+  @Input() formGroup:FormGroup|any;
+  @Input() name:string|any
 
-  value: any = '';
-
-  constructor(
-    @Self()
-
-    @Optional()
-    private ngControl: NgControl
-  ) {
-    if (this.ngControl) {
-      this.ngControl.valueAccessor = this;
-    }
+  private get control(): FormControl | any{
+    return this.formGroup && this.formGroup.get(this.name)
   }
-
-  ngOnInit() {}
-  
-  writeValue(value: any): void {
-    this.value = value;
+  get errors(): ValidationErrors | null{
+    return  this.control?.errors
   }
-
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
+  get dirty(): boolean{
+    return this.control?.dirty
   }
-
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-
-  onChange(event: any) {
-    if (event){
-      this.value = event;
-    }
-  }
-  onTouched() {}
+ 
 }

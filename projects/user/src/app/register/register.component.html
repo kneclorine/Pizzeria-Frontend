@@ -1,14 +1,13 @@
-<div>
+<div class="container">
   <h2>Create User</h2>
-  <form [formGroup]="userForm">
-    
-    <cap-input type="text" placeholder="First Name" formControlName="firstName" >
+  <form>
+    <cap-input [formGroup]="userForm" name="firstName" type="text" placeholder="First Name *"  >
     </cap-input>
-    <cap-input formControlName="lastName" type="text" placeholder="Last Name">
+    <cap-input  [formGroup]="userForm" name="lastName" type="text" placeholder="Last Name *">
     </cap-input>
-    <cap-input formControlName="email" type="text" placeholder="Email">
+    <cap-input  [formGroup]="userForm" name="email" type="text" placeholder="Email * ">
     </cap-input>
-    <cap-input formControlName="password" type="password" placeholder="Password">
+    <cap-input  [formGroup]="userForm" name="password" type="password" placeholder="Password *">
     </cap-input>
     <cap-checkbox text ="He leído y acepto la Política de Privacidad"></cap-checkbox>
     <cap-checkbox text ="Sí, acepto recibir comunicaciones comerciales y ofertas personalizadas según mi perfil."></cap-checkbox>

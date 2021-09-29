@@ -1,9 +1,11 @@
-<div><label>{{ label }}</label>
-<input [type]="type"
-       [placeholder]="placeholder"
-       [value]="value"
-       [disabled]="disabled"
-       (input)="onChange($any($event.target).value)"
-       (blur)="onTouched()"/> 
+<div class = "container">
+       <label *ngIf="label" for="{{name}}">{{ label }}</label>
+       <div class = "input-container" [formGroup]="formGroup" >
+              <input [type]="type"
+              [placeholder]="placeholder"                         
+              [formControlName]="name"
+              id={{name}}
+             />             
+       </div>
+       <cap-error *ngIf="dirty && errors" [errors]="errors"></cap-error>
 </div> 
-

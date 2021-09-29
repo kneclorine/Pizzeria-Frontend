@@ -4,7 +4,9 @@ import { CapCheckboxComponent } from './formcontrols/cap-checkbox/cap-checkbox.c
 import { CapImgComponent } from './formcontrols/cap-img/cap-img.component';
 import { CapInputComponent } from './formcontrols/cap-input/cap-input.component';
 import { MenuComponent } from './menu/menu.component';
-import IndexeddbService from './services/indexeddb.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component';
 
 
 
@@ -15,15 +17,18 @@ import IndexeddbService from './services/indexeddb.service';
     CapButtonComponent,
     CapCheckboxComponent,
     CapImgComponent,
+    CapErrorComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    CommonModule,
   ],
   exports: [
     MenuComponent,
     CapInputComponent,
     CapButtonComponent,
     CapCheckboxComponent,
-    CapImgComponent,
+    CapImgComponent,    
   ]
 })
 export class CoreLibModule { 

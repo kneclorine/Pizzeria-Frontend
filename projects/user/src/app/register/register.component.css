@@ -2,3 +2,7 @@ form{
     display:grid;
 	gap:1.25rem;
 }
+.container{
+    width: 80%;
+    margin: auto;
+}
