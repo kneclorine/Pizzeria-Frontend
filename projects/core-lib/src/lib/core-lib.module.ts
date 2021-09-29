@@ -16,6 +16,7 @@ import IndexeddbService from './services/indexeddb.service';
     CapButtonComponent,
     CapCheckboxComponent,
     CapImgComponent,
+    CapImguploadComponent,
   ],
   imports: [
   ],
@@ -25,6 +26,7 @@ import IndexeddbService from './services/indexeddb.service';
     CapButtonComponent,
     CapCheckboxComponent,
     CapImgComponent,
+    CapImguploadComponent,
   ]
 })
 export class CoreLibModule { 

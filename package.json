@@ -18,11 +18,11 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
-    "idb": "^6.1.4",
-    "localbase": "^0.7.5",
     "@cloudinary/angular": "^1.0.0-beta.11",
     "@cloudinary/url-gen": "^1.0.0",
     "dotenv": "^10.0.0",
+    "idb": "^6.1.4",
+    "localbase": "^0.7.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
