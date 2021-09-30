@@ -30,7 +30,6 @@ import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component'
     CapInputComponent,
     CapButtonComponent,
     CapCheckboxComponent,
-    CapImgComponent,    
     CapImgComponent,
     CapImguploadComponent,
   ]
