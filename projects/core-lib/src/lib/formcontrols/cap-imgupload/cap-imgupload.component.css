@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+h1{
+    font-family: Quicksand;
+    font-weight: bold;
+}
 .dropzone{
     width: 32rem;
     height: 19.0625rem;
+    margin-top: 1rem;
     border: dashed 1px #979797;
     border-radius: 0.5rem;
     position: relative;
@@ -43,5 +48,5 @@ label{
     text-align: center;
     font-family: Quicksand;
     font-size: small;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
 }
