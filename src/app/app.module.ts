@@ -10,6 +10,7 @@ import { UserSharedModule } from 'projects/user/src/app/app.module';
 import { CoreLibModule } from 'core-lib';
 import { SpinnerComponent } from 'projects/core-lib/src/public-api';
 import { InjectorDecorator } from 'projects/core-lib/src/lib/decorators/injectorDecorator';
+import { PizzaSharedModule } from 'projects/pizza/src/app/app.module';
 
 
 @NgModule({
@@ -18,12 +19,13 @@ import { InjectorDecorator } from 'projects/core-lib/src/lib/decorators/injector
     SpinnerComponent
   ],
   imports: [
+    CoreLibModule,
+    CloudinaryModule,
     BrowserModule,
     AppRoutingModule,
     IngredientSharedModule.forRoot(),
     UserSharedModule.forRoot(),
-    CoreLibModule,
-    CloudinaryModule,
+    PizzaSharedModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
