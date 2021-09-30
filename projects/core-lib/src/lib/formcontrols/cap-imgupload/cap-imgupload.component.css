@@ -2,11 +2,12 @@
 h1{
     font-family: Quicksand;
     font-weight: bold;
+    font-size: 1.5rem;
 }
 .dropzone{
     width: 32rem;
     height: 19.0625rem;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     border: dashed 1px #979797;
     border-radius: 0.5rem;
     position: relative;
@@ -47,6 +48,8 @@ label{
     color: white;
     text-align: center;
     font-family: Quicksand;
-    font-size: small;
+    font-size: 0.7rem;
+    font-weight: bold;
     margin-top: 1rem;
+    line-height: 1rem;
 }
