@@ -25,9 +25,13 @@ export class CapImguploadComponent {
       fileReader.readAsDataURL(file);
       
       const formData = new FormData();
-      formData.append("thumbnail", file);
+      formData.append("image", file);
 
-      const upload$ = this.http.post(environment.url + "/api/v1/images", formData);
+      //TODO: Meter el token en el header
+      const header = new HttpHeaders();
+      header.append('Authorization', `Bearer `);
+
+      const upload$ = this.http.post(environment.url + "/api/v1/images", formData, {headers: header});
       upload$.subscribe((data)=>{
         //Que se hace con el uuid
       });
