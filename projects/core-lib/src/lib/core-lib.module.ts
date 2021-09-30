@@ -33,7 +33,8 @@ import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component'
     CapImgComponent,    
     CapImgComponent,
     CapImguploadComponent,
-  ]
+  ],
+  
 })
 export class CoreLibModule { 
   constructor(){ }
