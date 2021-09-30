@@ -1,12 +1,11 @@
 button{
-    width: 21.4375rem;
-    height: 2.875rem;
+    width: 100%;
     margin: 2.5rem 0 0 0.125rem;
     padding: 0.6875rem 2.2687rem 0.75rem 2.8375rem;
     border-radius: 5px;
     background-color: var(--red-red-600);
     color: var(--white);
-    font-family: Verdana;
+    font-family: Quicksand;
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;

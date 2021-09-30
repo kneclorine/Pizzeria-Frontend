@@ -1,12 +1,19 @@
-input{
-	display:grid;
-    width: 21.56rem;
-    height: 2.875rem;
-	gap:1.25rem;
+.container{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+.input-container{
+    font-family: Quicksand;
+    font-size: 18px;
+    padding: 0.5rem;
     border-radius: 5px;
     border: solid 1px var(--gray-gray-500);
     background-color: var(--white);
 }
-input::placeholder{
-    padding-left: 1em;
+
+input{
+    border: none;
+    outline: none;
 }

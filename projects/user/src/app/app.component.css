@@ -1,5 +1,11 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 100%;
+}
 
-div{
+div.left,
+div.right{
     flex-grow: 0;
     display: flex;
     flex-direction: column;
@@ -11,7 +17,6 @@ div{
 }
 
 .right{
-    
     background-color: var(--gray-50);
 }
 img{
@@ -19,4 +24,4 @@ img{
     height: 20.625rem;
     flex-grow: 0;
     object-fit: contain;
-    }
+}

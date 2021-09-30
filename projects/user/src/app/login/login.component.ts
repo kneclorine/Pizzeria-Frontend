@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   constructor(private httpUserService: HttpUserService, private router: Router) { 
     
   }
-  userForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   });
   userLogin: UserLogin={
@@ -31,11 +31,13 @@ export class LoginComponent implements OnInit {
     const unsuscribe = observer.subscribe((data) => {
       this.userForm.reset();
       if(data){
-        localStorage.setItem('user',JSON.stringify(data));
-        this.router.navigate(["login"]);
+        
+        this.router.navigate([""]);
       }*/
   }
-
+  onRedirect(){
+    this.router.navigate(["register"]);
+  }
   ngOnInit(): void {
   }
 
