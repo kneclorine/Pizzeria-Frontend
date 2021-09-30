@@ -1,6 +1,7 @@
 html, body {
     font-size: 1rem;
     line-height: 1.2;
+    height: 100%;
 }
 body {
     font-family: 'Quicksand', sans-serif;
@@ -46,7 +47,7 @@ main{
     padding: var(--space-l);
 }
 input, button, textarea, select, option {
-    font: inherit;
+    font: 1.125rem;
 }
 
 @media (max-width: 960px) {

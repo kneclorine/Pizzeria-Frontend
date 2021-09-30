@@ -1,3 +1,7 @@
-<div class = "checkbox"><input type="checkbox" [checked]="isChecked">
-<span>{{text}}</span>
+<div class = "checkbox" [formGroup]="formGroup">
+    <input type="checkbox"
+    [formControlName]="name"
+    id={{name}} >
+    <span>{{text}}</span>
+<cap-error *ngIf="dirty && errors" [errors]="errors"></cap-error>
 </div>

@@ -14,5 +14,8 @@ export class HttpUserService {
   addUser(body: User):Observable<UserDTO> {
     return <Observable<UserDTO>> this.http.post(`${environment.url + "/api/v1/users"}`, body);
   }
+  login(body:UserLogin):Observable<UserDTO>{
+    return <Observable<UserDTO>> this.http.post(`${environment.url + "/api/v1/users/login"}`, body)
+  }
   
 }

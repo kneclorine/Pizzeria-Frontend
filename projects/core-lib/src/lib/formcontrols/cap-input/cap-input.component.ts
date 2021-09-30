@@ -1,6 +1,5 @@
 import { Component,Input,  } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
-import { InputControl } from 'projects/core-lib/src/lib/interfaces/inputcontrol';
 @Component({
   selector: 'cap-input',
   templateUrl: './cap-input.component.html',
@@ -11,7 +10,6 @@ export class CapInputComponent{
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type: 'text' | 'email' | 'password' = 'text';
-  @Input() inputcontrol: InputControl |any; 
   @Input() formGroup:FormGroup|any;
   @Input() name:string|any
 

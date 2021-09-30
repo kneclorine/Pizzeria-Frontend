@@ -1,8 +1,7 @@
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { UserDTO } from "../user/userDTO";
-import userStorage from "../user/userStorage";
 import { DecoratorService } from "./decoratorservice";
 import  IndexeddbService  from "../services/indexeddb.service";
 

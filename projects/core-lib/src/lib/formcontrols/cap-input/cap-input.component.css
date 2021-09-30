@@ -1,13 +1,13 @@
 .container{
     display: grid;
     gap: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     width: 100%;
 }
 .input-container{
     font-family: Quicksand;
     font-size: 18px;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 5px;
     border: solid 1px var(--gray-gray-500);
     background-color: var(--white);
