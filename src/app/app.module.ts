@@ -23,7 +23,7 @@ import { InjectorDecorator } from 'projects/core-lib/src/lib/decorators/injector
     IngredientSharedModule.forRoot(),
     UserSharedModule.forRoot(),
     CoreLibModule,
-    CloudinaryModule 
+    CloudinaryModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
