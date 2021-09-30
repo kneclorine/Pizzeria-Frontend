@@ -9,6 +9,7 @@ import { environment } from './enviroment';
 })
 export class CapImguploadComponent {
   imgURL: any = '';
+  hidden: any = 'display: none';
   
   constructor(private http: HttpClient){ }
 
@@ -19,6 +20,7 @@ export class CapImguploadComponent {
     if(file){
       fileReader.onload = (e) =>{
         this.imgURL = e.target?.result;
+        this.hidden = '';
       };
       fileReader.readAsDataURL(file);
       
@@ -34,5 +36,6 @@ export class CapImguploadComponent {
 
   deleteFile(){
     this.imgURL = '';
+    this.hidden = 'display: none'
   }
 }

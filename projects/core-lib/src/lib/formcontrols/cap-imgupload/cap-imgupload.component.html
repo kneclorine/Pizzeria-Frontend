@@ -1,6 +1,6 @@
 <div class="dropzone">
   <button class="delete" (click)="deleteFile()">X</button>
   <input type="file" id="fileUpload" accept="image/*" (change)="onFileSelected($event)"/>
-  <img id="image" [src]="imgURL">
+  <img id="image" [src]="imgURL" [style]="hidden">
 </div>
 <label for="fileUpload">SUBIR IMAGEN</label>
