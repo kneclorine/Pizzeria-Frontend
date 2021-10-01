@@ -17,7 +17,7 @@ export class HttpInterceptorAuth implements HttpInterceptor {
 
         const autorizationObserver = DecoratorService.getAuthorizationObserver();
         if (autorizationObserver.addToken) {
-            let modified = null;
+            let modified =null;
             modified =(async ()=>await this.setAuthorization(req));
             autorizationObserver.addToken = false;
             //TODO: descomentar

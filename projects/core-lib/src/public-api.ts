@@ -20,4 +20,5 @@ export * from './lib/spinner/spinner.component';
 export * from './lib/formcontrols/cap-imgupload/cap-imgupload.component';
 export * from './lib/decorators/injectorDecorator';
 export * from './lib/services/loading.service';
+export * from './lib/decorators/spinner';
 

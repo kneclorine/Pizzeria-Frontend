@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { environment } from './enviroment';
 
@@ -27,11 +27,8 @@ export class CapImguploadComponent {
       const formData = new FormData();
       formData.append("image", file);
 
-      //TODO: Meter el token en el header
-      const header = new HttpHeaders();
-      header.append('Authorization', `Bearer `);
 
-      const upload$ = this.http.post(environment.url + "/api/v1/images", formData, {headers: header});
+      const upload$ = this.http.post(environment.url + "/api/v1/images", formData);
       upload$.subscribe((data)=>{
         //Que se hace con el uuid
       });
