@@ -34,12 +34,12 @@ export class LoginComponent implements OnInit {
       if(data){
         this.indexeddbService.removeUser();
         this.indexeddbService.addUser(data);
-        this.router.navigate(["register"]);
+        this.router.navigate(["user/register"]);
       }
     });
   }
   onRedirect(){
-    this.router.navigate(["register"]);
+    this.router.navigate(["user/register"]);
   }
   
   ngOnInit(): void {

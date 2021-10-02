@@ -11,7 +11,6 @@ export class HttpUserService {
 
   constructor(public http: HttpClient) {
   }
-  @spinner()
   addUser(body: User):Observable<UserDTO> {
     return <Observable<UserDTO>> this.http.post(`${environment.url + "/api/v1/users"}`, body);
   }

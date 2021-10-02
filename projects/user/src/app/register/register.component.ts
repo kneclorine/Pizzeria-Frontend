@@ -42,7 +42,7 @@ export class RegisterComponent {
       const unsuscribe = observer.subscribe((data) => {
         this.indexeddbService.removeUser();
         this.indexeddbService.addUser(data);
-        this.router.navigate(["login"]);
+        this.router.navigate(["user/login"]);
       });
     }
   }

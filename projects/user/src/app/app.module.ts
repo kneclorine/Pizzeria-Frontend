@@ -14,8 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { CoreLibModule } from 'core-lib';
 
 const providers:any[] = [INTERCEPTORS, AuthorizationObserver]
-const routes: Routes =[
- ];
+
 @NgModule({
   declarations: [
     UserComponent,
@@ -41,7 +40,6 @@ export class UserModule {
 
 @NgModule({})
 export class UserSharedModule {
-  constructor(private router: Router){}
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: UserModule,
