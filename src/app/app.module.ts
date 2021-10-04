@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreLibModule } from 'core-lib';
 import { InjectorDecorator } from 'core-lib';
+import { IngredientLibModule } from 'ingredient-lib';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { InjectorDecorator } from 'core-lib';
   ],
   imports: [
     CoreLibModule,
+    IngredientLibModule,
     CloudinaryModule,
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,11 @@
+<select name="Ingredients" >
+  <option value="a">a</option>
+  <option value="b">b</option>
+  <option value="c">c</option>
+  <option value="d">d</option>
+  <option value="e">e</option>
+  <option value="f">f</option>
+</select>
+<div (click) = "handlerclick($event)">
+  <cap-ingredient-item [ingredient] = "ingredient" *ngFor="let ingredient of ingredients"></cap-ingredient-item>
+</div>

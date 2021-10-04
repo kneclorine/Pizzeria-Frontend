@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { IngredientLibModule } from 'ingredient-lib';
 
 const providers: any[] = []
 
@@ -21,6 +22,7 @@ const providers: any[] = []
     FormsModule,
     HttpClientModule,
     CoreLibModule,
+    IngredientLibModule,
   ],
   providers: providers,
   bootstrap: [AppComponent]

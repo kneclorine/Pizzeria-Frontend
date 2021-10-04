@@ -8,6 +8,10 @@
       "core-lib": [
         "dist/core-lib/core-lib",
         "dist/core-lib"
+      ],
+      "ingredient-lib": [
+        "dist/ingredient-lib/ingredient-lib",
+        "dist/ingredient-lib"
       ]
     },
     "outDir": "./dist/out-tsc",

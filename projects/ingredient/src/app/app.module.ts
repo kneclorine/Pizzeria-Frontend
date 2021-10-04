@@ -8,6 +8,7 @@ import { IngredientService } from './service/ingredient.service';
 import { IngredientBaseComponent } from './app.component';
 import { AuthorizationObserver, CoreLibModule, DecoratorService, INTERCEPTORS } from 'core-lib';
 import { ChildRoutingModule } from './app-routing.module';
+import { IngredientLibModule } from 'ingredient-lib';
 
 const providers: any[] = [INTERCEPTORS, AuthorizationObserver, IngredientService];
 
@@ -20,7 +21,8 @@ const providers: any[] = [INTERCEPTORS, AuthorizationObserver, IngredientService
     RootRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CoreLibModule
+    CoreLibModule,
+    IngredientLibModule,
   ],
   providers: providers,
   bootstrap: [IngredientBaseComponent]
