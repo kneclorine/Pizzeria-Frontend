@@ -1,30 +1,43 @@
-import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RootRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IngredientService } from './service/ingredient.service';
+import { IngredientBaseComponent } from './app.component';
+import { AuthorizationObserver, CoreLibModule, DecoratorService, INTERCEPTORS } from 'core-lib';
+import { ChildRoutingModule } from './app-routing.module';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-const providers: any[] = [];
+const providers: any[] = [INTERCEPTORS, AuthorizationObserver, IngredientService];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [	
+    IngredientBaseComponent,
+   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RootRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    CoreLibModule
   ],
   providers: providers,
-  bootstrap: [AppComponent]
+  bootstrap: [IngredientBaseComponent]
 })
-export class AppModule { }
+export class IngredientBaseModule { 
+  constructor(private decoratorService: DecoratorService){}
+}
 
-@NgModule({})
+@NgModule({
+  imports: [
+    ChildRoutingModule,
+  ]
+})
 export class IngredientSharedModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<IngredientBaseModule> {
     return {
-      ngModule: AppModule,
+      ngModule: IngredientBaseModule,
       providers: providers
     }
   }

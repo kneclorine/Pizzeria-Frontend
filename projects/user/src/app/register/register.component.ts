@@ -1,8 +1,7 @@
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpUserService } from '../services/userservices';
+import { UserService } from '../services/userservices';
 import {IndexeddbService}  from 'core-lib';
 import { User } from '../userinterface';
 
@@ -30,7 +29,7 @@ export class RegisterComponent {
   }
   
   
-  constructor(private httpUserService: HttpUserService, private router: Router, private formBuilder: FormBuilder, private indexeddbService: IndexeddbService) {
+  constructor(private UserService: UserService, private router: Router, private formBuilder: FormBuilder, private indexeddbService: IndexeddbService) {
   }
   onSubmit() {
     if (this.userForm.valid) {
@@ -38,11 +37,11 @@ export class RegisterComponent {
       this.user.lastName = this.userForm.get("lastName")?.value;
       this.user.email = this.userForm.get("email")?.value;
       this.user.password = this.userForm.get("password")?.value;
-      const observer = this.httpUserService.addUser(this.user);
+      const observer = this.UserService.addUser(this.user);
       const unsuscribe = observer.subscribe((data) => {
         this.indexeddbService.removeUser();
         this.indexeddbService.addUser(data);
-        this.router.navigate(["login"]);
+        this.router.navigate(["user/login"]);
       });
     }
   }
