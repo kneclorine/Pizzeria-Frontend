@@ -1,50 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
-const routesRoot: Routes = [
-  {
-    path:'', pathMatch: 'full', redirectTo:'user/login'
-  },
-  {
-    path:'user', pathMatch: 'full', redirectTo:'user/login'
-  },
-  {
-    path: 'user/register',
-    loadChildren: () => import('./register/register.module')
-      .then(module => module.RegisterModule)
-  },
-  {
-    path: 'user/login',
-    loadChildren: () => import('./login/login.module')
-      .then(module => module.LoginModule)
-  }
-];
 
-const routesChild: Routes = [
-  {
-    path: '', component: UserComponent,
-  },
+
+const routes: Routes = [
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module')
-      .then(module => module.RegisterModule)
+    component: RegisterComponent
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module')
-      .then(module => module.LoginModule)
+    component: LoginComponent
   }
-];
+].map(r=>({...r, data: { loadLayout: true }}))
 
 @NgModule({
-  imports: [RouterModule.forChild(routesChild)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class ChildRoutingModule { }
 
 @NgModule({
-  imports: [RouterModule.forRoot(routesRoot)],
+  imports: [
+    RouterModule.forRoot([
+      ...routes.map(r => {
+        return { ...r, data: { loadLayout: false } }
+      })
+      , { path: '', pathMatch: 'full', redirectTo: 'login' }])],
   exports: [RouterModule]
 })
 export class RootRoutingModule { }

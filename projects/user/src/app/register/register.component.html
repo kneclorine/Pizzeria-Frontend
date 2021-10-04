@@ -1,16 +1,4 @@
-<div class="container" >
-  <span class="title">¿Quieres registrarte?</span>
-  <form class="user" [formGroup]="userForm">
-    <cap-input [formGroup]="userForm" name="firstName" type="text" placeholder="Nombre *"  >
-    </cap-input>
-    <cap-input  [formGroup]="userForm" name="lastName" type="text" placeholder="Apellidos *">
-    </cap-input>
-    <cap-input  [formGroup]="userForm" name="email" type="text" placeholder="Tu Email * ">
-    </cap-input>
-    <cap-input  [formGroup]="userForm" name="password" type="password" placeholder="Contraseña *">
-    </cap-input>
-    <cap-checkbox class="check" [formGroup]="userForm" name = "policies" text ="He leído y acepto la Política de Privacidad"></cap-checkbox>
-    <cap-checkbox class="check" [formGroup]="userForm" name = "consent" text ="Sí, acepto recibir comunicaciones comerciales y ofertas personalizadas según mi perfil."></cap-checkbox>
-    <cap-button type="submit" text="REGISTRARME" (BtnClickEmt)="onSubmit()" ></cap-button>
-  </form>
-</div>
+<user-layout *ngIf="loadLayout">
+  <user-formregistercomponent [formGroup]= "userForm" (submit)="onSubmit()"></user-formregistercomponent>
+</user-layout>
+<user-formregistercomponent *ngIf="!loadLayout" [formGroup]= "userForm" (submit)="onSubmit()"></user-formregistercomponent>
