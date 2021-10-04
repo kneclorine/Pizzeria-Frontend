@@ -18,10 +18,9 @@ export class HttpInterceptorAuth implements HttpInterceptor {
      intercept(req: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>> {    
         const autorizationObserver = DecoratorService.getAuthorizationObserver();
         if (autorizationObserver.addToken) {
-            let modified;
-            modified =this.setAuthorization(req)
             autorizationObserver.addToken = false;
-            return from(this.reqPromise(req, next));
+            let clone = from(this.reqPromise(req, next,));
+            return clone;
         }
         return next.handle(req);
     }

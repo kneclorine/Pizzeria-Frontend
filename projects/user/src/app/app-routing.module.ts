@@ -1,16 +1,44 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from '../app/login/login.component';
 import { UserComponent } from './app.component';
-import { RegisterComponent } from './register/register.component';
-const routes: Routes = [
-  { path:'user/login', component: LoginComponent},
-  { path:'user/register', component: RegisterComponent},
-  { path:'user', component: UserComponent}
+
+const routesRoot: Routes = [
+  {
+    path: '', component: UserComponent,
+  },
+  {
+    path: 'user/register',
+    loadChildren: () => import('./register/register.module')
+      .then(module => module.RegisterModule)
+  },
+  {
+    path: 'user/login',
+    loadChildren: () => import('./login/login.module')
+      .then(module => module.LoginModule)
+  }
+];
+
+const routesChild: Routes = [
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module')
+      .then(module => module.RegisterModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module')
+      .then(module => module.LoginModule)
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routesChild)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class ChildRoutingModule { }
+
+@NgModule({
+  imports: [RouterModule.forRoot(routesRoot)],
+  exports: [RouterModule]
+})
+export class RootRoutingModule { }

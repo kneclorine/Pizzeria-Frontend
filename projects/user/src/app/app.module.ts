@@ -1,34 +1,29 @@
-import { HttpClientModule } from '@angular/common/http';
-import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router, Routes } from '@angular/router';
 import { INTERCEPTORS } from 'core-lib'; 
 import { DecoratorService } from 'core-lib';
 import { AuthorizationObserver } from 'core-lib';
-import { AppRoutingModule } from './app-routing.module';
 import { UserComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { CoreLibModule } from 'core-lib';
+import { ChildRoutingModule, RootRoutingModule } from './app-routing.module';
+import { UserService } from './services/userservices';
+import { HttpClientModule } from '@angular/common/http';
 
-const providers:any[] = [INTERCEPTORS, AuthorizationObserver]
+const providers:any[] = [INTERCEPTORS, AuthorizationObserver, UserService]
 
 @NgModule({
   declarations: [
     UserComponent,
-    LoginComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CoreLibModule
-    
+    CoreLibModule,
+    RootRoutingModule,
+    HttpClientModule,
   ],
   providers: [providers],
 
@@ -38,9 +33,13 @@ export class UserModule {
   constructor(private decoratorService: DecoratorService){}
 }
 
-@NgModule({})
+@NgModule({
+  imports: [
+    ChildRoutingModule,
+  ],
+})
 export class UserSharedModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<UserModule> {
     return {
       ngModule: UserModule,
       providers: providers
