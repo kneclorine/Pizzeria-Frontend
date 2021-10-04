@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router } from '@angular/router';
-import { CoreLibModule, DecoratorService } from 'core-lib';
+import { CoreLibModule } from 'core-lib';
 import { AddComponent } from './add/add.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
