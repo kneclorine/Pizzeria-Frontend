@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthorizationObserver, DecoratorService, INTERCEPTORS } from 'core-lib';
 import { IngredientdropdownComponent } from './ingredientdropdown/ingredientdropdown.component';
@@ -12,7 +13,8 @@ import { IngredientItemComponent } from './ingredientitem/ingredientitem.compone
     IngredientdropdownComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
   exports: [
     IngredientItemComponent,

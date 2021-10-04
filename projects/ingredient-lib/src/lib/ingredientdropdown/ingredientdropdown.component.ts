@@ -11,6 +11,8 @@ import { Ingredient } from '../services/ingredient';
 export class IngredientdropdownComponent implements OnInit {
 
   ingredients: Ingredient[] = new Array<Ingredient>();
+  selectedIngredients: Ingredient[] = new Array<Ingredient>();
+  default: any;
  
   private dispose: Subscription | null = null;
 
@@ -23,9 +25,21 @@ export class IngredientdropdownComponent implements OnInit {
   ngOnInit(): void {
     this.dispose = this.ingredientService.getAll().subscribe(data => this.ingredients = data);
   }
-  handlerclick(ev:any){ 
-    //TODO: Comprobar con un if que se ha hecho click en la
-    console.log("prueba")
+  addIngredient(event: any){
+    if(!this.selectedIngredients.includes(event)){
+      let index = this.ingredients.findIndex((element) => element == event);
+      this.ingredients.splice(index,1);
+      this.selectedIngredients.push(event);
+    }
   }
-
+  removeIngredient(event:any){
+    if(event.target.tagName == "svg" || event.target.tagName == "path" ){
+      for(let i = 0; i < this.selectedIngredients.length; i++){
+        if(event.target.closest("div").id == this.selectedIngredients[i].id){
+          this.ingredients.push(this.selectedIngredients[i]);
+          this.selectedIngredients.splice(i, 1);
+        }
+      }
+    }
+  }
 }
