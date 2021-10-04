@@ -8,7 +8,7 @@ import { INTERCEPTORS } from 'core-lib';
 import { DecoratorService } from 'core-lib';
 import { AuthorizationObserver } from 'core-lib';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { UserComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CoreLibModule } from 'core-lib';
@@ -18,7 +18,7 @@ const routes: Routes =[
  ];
 @NgModule({
   declarations: [
-    AppComponent,
+    UserComponent,
     LoginComponent,
     RegisterComponent,
   ],
@@ -33,9 +33,9 @@ const routes: Routes =[
   ],
   providers: [providers],
 
-  bootstrap: [AppComponent]
+  bootstrap: [UserComponent]
 })
-export class AppModule { 
+export class UserModule { 
   constructor(private decoratorService: DecoratorService){}
 }
 
@@ -44,7 +44,7 @@ export class UserSharedModule {
   constructor(private router: Router){}
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: AppModule,
+      ngModule: UserModule,
       providers: providers
     }
   }

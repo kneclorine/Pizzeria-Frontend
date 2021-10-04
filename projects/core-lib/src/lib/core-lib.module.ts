@@ -8,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -20,6 +21,7 @@ import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component'
     CapImgComponent,
     CapErrorComponent,
     CapImguploadComponent,
+    SpinnerComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -32,7 +34,8 @@ import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component'
     CapCheckboxComponent,
     CapImgComponent,
     CapImguploadComponent,
-  ]
+  ],
+  
 })
 export class CoreLibModule { 
   constructor(){ }
