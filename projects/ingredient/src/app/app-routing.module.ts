@@ -11,13 +11,23 @@ const routesRoot: Routes = [
     loadChildren: () => import('./add/add.module')
     .then(module => module.AddModule)
   },
+  {
+    path: 'ingredient/getall',
+    loadChildren: () => import('./getall/getall.module')
+    .then(module => module.GetallModule)
+  },
 ];
 
 const routesChild: Routes = [{
   path: 'add',
   loadChildren: () => import('./add/add.module')
-    .then(module => module.AddModule)
-}]
+    .then(module => module.AddModule),
+},
+{
+  path: 'getall',
+  loadChildren: () => import('./getall/getall.module')
+  .then(module => module.GetallModule)
+},]
 
 @NgModule({
   imports: [RouterModule.forRoot(routesRoot)],
