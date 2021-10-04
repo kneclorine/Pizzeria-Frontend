@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { FormregistercomponentComponent } from './formregistercomponent.component';
+import { FormloginComponent } from './formlogin.component';
 
-describe('FormregistercomponentComponent', () => {
-  let component: FormregistercomponentComponent;
-  let fixture: ComponentFixture<FormregistercomponentComponent>;
+describe('FormloginComponent', () => {
+  let component: FormloginComponent;
+  let fixture: ComponentFixture<FormloginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormregistercomponentComponent ]
+      declarations: [ FormloginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormregistercomponentComponent);
+    fixture = TestBed.createComponent(FormloginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

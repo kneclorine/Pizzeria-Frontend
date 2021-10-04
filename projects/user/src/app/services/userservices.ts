@@ -14,7 +14,6 @@ export class UserService {
   addUser(body: User|null):Observable<UserDTO> {
     return <Observable<UserDTO>> this.http.post(`${environment.url + "/api/v1/users"}`, body);
   }
-  @Authorize()
   login(body:UserLogin):Observable<UserDTO>{
     return <Observable<UserDTO>> this.http.post(`${environment.url + "/api/v1/users/login"}`, body)
   }

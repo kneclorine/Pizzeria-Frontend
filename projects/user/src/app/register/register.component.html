@@ -1,4 +1,4 @@
 <user-layout *ngIf="loadLayout">
-  <user-formregistercomponent [formGroup]= "userForm" (submit)="onSubmit()"></user-formregistercomponent>
+  <user-formregister [formGroup]= "userForm" (submit)="onSubmit()"></user-formregister>
 </user-layout>
-<user-formregistercomponent *ngIf="!loadLayout" [formGroup]= "userForm" (submit)="onSubmit()"></user-formregistercomponent>
+<user-formregister *ngIf="!loadLayout" [formGroup]= "userForm" (submit)="onSubmit()"></user-formregister>

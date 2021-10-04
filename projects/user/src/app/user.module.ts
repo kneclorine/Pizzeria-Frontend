@@ -4,16 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { INTERCEPTORS } from 'core-lib'; 
 import { DecoratorService } from 'core-lib';
-import { UserComponent } from './app.component';
+import { UserComponent } from './user.component';
 import { CoreLibModule } from 'core-lib';
-import { ChildRoutingModule, RootRoutingModule } from './app-routing.module';
+import { ChildRoutingModule, RootRoutingModule } from './user-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserService } from './services/userservices';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { CommonModule } from '@angular/common';
-import { FormregistercomponentComponent } from './register/formregistercomponent/formregistercomponent.component';
+import { FormRegisterComponent } from './register/formregister/formregister.component';
+import { FormloginComponent } from './login/formlogin/formlogin.component';
 
 const providers:any[] = [INTERCEPTORS]
 
@@ -23,7 +24,8 @@ const providers:any[] = [INTERCEPTORS]
     LoginComponent,
     RegisterComponent,
     UserLayoutComponent,
-    FormregistercomponentComponent,
+    FormRegisterComponent,
+    FormloginComponent,
   ],
   imports: [
     CommonModule,

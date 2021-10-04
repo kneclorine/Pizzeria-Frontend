@@ -2,8 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     height: 100%;
-}
-
+}s
 div.left,
 div.right{
     flex-grow: 0;
