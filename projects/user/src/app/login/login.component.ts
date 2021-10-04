@@ -20,16 +20,10 @@ export class LoginComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   });
-  userLogin: UserLogin={
-    email: '',
-    password: ''
-  }
   
 
   onSubmit() {
-    this.userLogin.email = this.loginForm.get('email')?.value;
-    this.userLogin.password = this.loginForm.get('password')?.value;
-    const observer = this.userservice.login(this.userLogin);
+    const observer = this.userservice.login(this.loginForm.value);
     const unsuscribe = observer.subscribe((data) => {
       if(data){
         this.indexeddbService.removeUser();

@@ -4,7 +4,10 @@ import { UserComponent } from './app.component';
 
 const routesRoot: Routes = [
   {
-    path: '', component: UserComponent,
+    path:'', pathMatch: 'full', redirectTo:'user/login'
+  },
+  {
+    path:'user', pathMatch: 'full', redirectTo:'user/login'
   },
   {
     path: 'user/register',
@@ -19,6 +22,9 @@ const routesRoot: Routes = [
 ];
 
 const routesChild: Routes = [
+  {
+    path: '', component: UserComponent,
+  },
   {
     path: 'register',
     loadChildren: () => import('./register/register.module')
