@@ -7,7 +7,6 @@ export * from './lib/core-lib.module';
 export * from './lib/interceptor/index';
 export * from './lib/services/authorize';
 export * from './lib/menu/menu.component';
-export * from './lib/services/authorizationobserver';
 export * from './lib/interceptor/decoratorservice';
 export * from './lib/config/config';
 export * from './lib/formcontrols/cap-input/cap-input.component';
@@ -21,4 +20,5 @@ export * from './lib/formcontrols/cap-imgupload/cap-imgupload.component';
 export * from './lib/decorators/injectorDecorator';
 export * from './lib/services/loading.service';
 export * from './lib/decorators/spinner';
+export * from './lib/layoutrouter';
 

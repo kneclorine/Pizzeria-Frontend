@@ -1,0 +1,15 @@
+<div class="containerLogin">
+  <span class="titleLogin2">
+    <span class="titleLogin">Inicia sesión<br></span>
+    y pide tu pizza favorita
+  </span>
+  <form class="login" [formGroup]="formGroup" (submit)="onSubmit($event)">
+    <cap-input [formGroup]="formGroup" name="email" type="text" placeholder="Tu Email * ">
+    </cap-input>
+    <cap-input [formGroup]="formGroup" name="password" type="password" placeholder="Contraseña *">
+    </cap-input>
+    <cap-button class= "bottonlogin" type="submit" text="Empezar pedido"></cap-button>
+  </form>
+  <span class="register">¿Aún no estás registrado?</span>
+  <cap-button type="submit" text="Registrarme" (btnClickEmt)="onRedirect()"></cap-button>
+</div>

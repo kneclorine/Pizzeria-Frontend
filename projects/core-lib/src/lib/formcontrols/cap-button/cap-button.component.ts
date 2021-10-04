@@ -8,14 +8,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CapButtonComponent implements OnInit {
   @Input() buttonConfig: any;
   @Input() text: string = '';
-  @Output() BtnClickEmt: EventEmitter<string> = new EventEmitter<string>();
+  @Output() btnClickEmt: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {}
 
   onBtnClick() {
-    this.BtnClickEmt.emit();
+    this.btnClickEmt.emit();
   }
 
 }
