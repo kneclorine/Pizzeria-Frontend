@@ -1,30 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../services/userservices';
-import { IndexeddbService } from 'core-lib';
+import { IUserService } from '../services/interfaceuserservice';
+import { IndexeddbService, LayoutRouter } from 'core-lib';
 import { User } from '../userinterface';
-import { LayoutRouter } from 'core-lib';
-
+import { UserService } from '../services/userservices';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
 })
-export class RegisterComponent extends LayoutRouter {
-
+export class RegisterComponent extends LayoutRouter implements OnInit  {
+ 
+  loadLayout:boolean = true;
   constructor(
-    private UserService: UserService,
+    private userService: UserService,
     private router: Router,
     private indexeddbService: IndexeddbService,
     private activeRouter: ActivatedRoute) {
     super(activeRouter);
   }
   onSubmit(user: User) {
-    const observer = this.UserService.addUser(user);
+    const observer = this.userService.addUser(user);
     const unsuscribe = observer.subscribe((data) => {
       this.indexeddbService.removeUser();
       this.indexeddbService.addUser(data);
       this.router.navigate(["user/login"]);
     });
+  }
+  ngOnInit(): void {
+    this.activeRouter.data.subscribe((data)=>{
+       this.loadLayout = data.loadLayout
+    })
   }
 }

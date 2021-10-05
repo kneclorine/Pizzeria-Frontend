@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UserLogin } from '../../logininterface';
 
 @Component({
   selector: 'user-formlogin',
@@ -7,12 +8,18 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./formlogin.component.css']
 })
 export class FormloginComponent  {
-  @Input() formGroup: FormGroup|any
-  @Output() submit = new EventEmitter<any>()
+  @Output() submit = new EventEmitter<UserLogin>()
+
+  formGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
+  });
   onSubmit($event:any){
     $event.stopPropagation();
     $event.preventDefault();
-    this.submit.emit();
+    if(this.formGroup.valid){
+      this.submit.emit(this.formGroup.value)
+    }
   }
 
 
