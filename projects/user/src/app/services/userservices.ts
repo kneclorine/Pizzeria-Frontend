@@ -5,9 +5,10 @@ import { environment } from '../../environments/environment'
 import { UserLogin } from '../logininterface';
 import { UserDTO } from 'core-lib';
 import { Observable } from 'rxjs/internal/Observable';
+import { IUserService } from './interfaceuserservice';
 
 @Injectable({providedIn: 'root'})
-export class UserService {
+export class UserService implements IUserService{
 
   constructor(public http: HttpClient) {
   }

@@ -1,34 +1,16 @@
 .login{
     display:grid;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 }
 .containerLogin{ 
-    width: 80%;
-}
-.titleLogin{
-    font-family: Quicksand;
-    font-size: 36px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: var(--black);
-}
-.titleLogin2,
-.register{
-    font-family: Quicksand;
-    font-size: 24px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: var(--black);
-}
-
-.bottonlogin{
+    width: 100%;
     margin-bottom: 2rem;
 }
+.title{
+    font-weight: bold;
+    margin-bottom:1rem;
+}
+
+
+
+
