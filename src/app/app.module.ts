@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import {CloudinaryModule} from '@cloudinary/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreLibModule } from 'core-lib';
+import { CoreLibModule, DecoratorService, INTERCEPTORS } from 'core-lib';
 import { InjectorDecorator } from 'core-lib';
 
-
+const providers:any[] = [INTERCEPTORS]
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,7 @@ import { InjectorDecorator } from 'core-lib';
     BrowserModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [providers],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
