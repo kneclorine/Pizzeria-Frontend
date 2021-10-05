@@ -1,4 +1,10 @@
+h1{
+    font-family: Quicksand;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 select{
+    margin-top: 1.5rem;
     height: 2rem;
     width: 32rem;
     border-radius: 0.3rem;
