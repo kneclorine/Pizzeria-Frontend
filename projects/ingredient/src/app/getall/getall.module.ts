@@ -16,7 +16,7 @@ import { GetallComponent } from './getall.component';
     GetAllRoutingModule,
     CoreLibModule,
     HttpClientModule,
-    IngredientModule
+    IngredientModule,
   ],
   providers: [
     IngredientService,

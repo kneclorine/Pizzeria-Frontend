@@ -8,25 +8,27 @@ import { Authorize } from 'core-lib';
   providedIn: 'root'
 })
 
-//@Authorize()
+
 export class IngredientService {
 
 
   constructor(public http: HttpClient) { }
 
+  //@Authorize()
   getAll(): Observable<Ingredient []>{
     return <Observable<Ingredient []>> this.http.get(`http://localhost:9999/api/v1/ingredients`)
   }
+
   @Authorize()
   createIngredient(ingredient: IngredientCreateDTO): Observable<Object>{
     return this.http.post(`http://localhost:9999/api/v1/ingredients`, ingredient);
   }
 
-  deleteIngredient(id: number): Observable<Object>{
+  deleteIngredient(id: string) {
     return this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`);
   }
 
-  getIngredientById(id: number): Observable<Ingredient>{
+  getIngredientById(id: string): Observable<Ingredient>{
     return this.http.get<Ingredient>(`http://localhost:9999/api/v1/ingredients/${id}`);
   }
 }

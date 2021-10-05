@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Actions } from '../service/actions';
-import { Ingredient, IngredientCreateDTO } from '../service/ingredient';
+import { Ingredient } from '../service/ingredient';
 import { IngredientService } from '../service/ingredient.service';
 
 @Component({
@@ -14,7 +14,6 @@ export class GetallComponent implements OnInit {
   ingredients: Ingredient[] = new Array<Ingredient>()
   private dispose: Subscription | null = null;
   selected: Actions = Actions.selected
-  selectedIngredients: Ingredient[] = new Array <Ingredient>()
 
   constructor(private ingredientService: IngredientService){}
 
@@ -25,12 +24,7 @@ export class GetallComponent implements OnInit {
   ngOnInit(): void {
     this.dispose = this.ingredientService.getAll().subscribe(data => this.ingredients = data);
   }
-  handlerclick(event:any){ 
-    if(event) {
-       this.selectedIngredients.push()//TODO llenar lista
-       console.log(this.selectedIngredients)
-    }
-    //TODO: me ha dicho Pedro que aquí tengo que escribir un IF
-  }
+
+  
 
 }
