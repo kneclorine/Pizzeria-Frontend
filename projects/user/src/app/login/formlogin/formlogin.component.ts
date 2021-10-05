@@ -9,15 +9,12 @@ import { FormGroup } from '@angular/forms';
 export class FormloginComponent  {
   @Input() formGroup: FormGroup|any
   @Output() submit = new EventEmitter<any>()
-  @Output() btnClickEmt = new EventEmitter<any>()
   onSubmit($event:any){
     $event.stopPropagation();
     $event.preventDefault();
     this.submit.emit();
   }
-  onRedirect(){
-    this.btnClickEmt.emit();
-  }
+
 
   
 
