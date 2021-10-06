@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Actions } from '../service/actions';
-import { Ingredient } from '../service/ingredient';
-import { IngredientService } from '../service/ingredient.service';
+import { Actions } from '../../service/actions';
+import { Ingredient } from '../../service/ingredient';
+import { IngredientService } from '../../service/ingredient.service';
 
 @Component({
   selector: 'app-getall',
@@ -27,6 +27,10 @@ export class GetallComponent implements OnInit {
 
   handlerclick(event: any) {
 
+    const dataset = event.target.dataset;
+    if(dataset){
+      
+    }
     if (event.target.tagName == "svg" || event.target.tagName == "path") {
       for (let i = 0; i < this.ingredients.length; i++) {
         if (event.target.closest("div").id == this.ingredients[i].id) {

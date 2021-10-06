@@ -1,7 +1,7 @@
 import { Component, Input, Output } from "@angular/core";
-import { Ingredient } from "../service/ingredient";
-import { Actions } from "../service/actions";
-import { IngredientService } from "../service/ingredient.service";
+import { Ingredient } from "../../service/ingredient";
+import { Actions } from "../../service/actions";
+import { IngredientService } from "../../service/ingredient.service";
 
 @Component({
     selector: 'cap-ingredient-item',
