@@ -7,10 +7,10 @@ import { IngredientService } from '../service/ingredient.service';
   styleUrls: ['./ingredientglobal.component.css']
 })
 export class IngredientglobalComponent implements OnInit {
+    constructor(
+        private ingredientService: IngredientService,
+    ){}
 
-  constructor(
-    private ingredientService: IngredientService,
-  ) { }
 
   ngOnInit() {
   }

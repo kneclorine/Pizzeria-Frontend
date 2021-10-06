@@ -11,8 +11,10 @@ import { IngredientItemComponent } from './ingredientglobal/ingredientitem/ingre
 import { FormComponent } from './ingredientglobal/form/form.component';
 import { GetallComponent } from './ingredientglobal/getall/getall.component';
 import { CommonModule } from '@angular/common';
+import { IngredientglobalComponent} from './ingredientglobal/ingredientglobal.component' ;
+import { IngredientService } from './service/ingredient.service';
 
-const providers: any[] = [INTERCEPTORS];
+const providers: any[] = [INTERCEPTORS,];
 
 @NgModule({
   declarations: [	
@@ -20,6 +22,7 @@ const providers: any[] = [INTERCEPTORS];
     IngredientItemComponent,
     FormComponent,
     GetallComponent,
+    IngredientglobalComponent
    ],
   imports: [
     CommonModule,
@@ -43,7 +46,8 @@ export class IngredientBaseModule {
     ReactiveFormsModule,
     CoreLibModule,
     HttpClientModule,
-  ]
+  ],
+  providers: [IngredientService]
 })
 export class IngredientSharedModule {
   static forRoot(): ModuleWithProviders<IngredientBaseModule> {

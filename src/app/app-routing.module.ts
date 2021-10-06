@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppModule} from '../../projects/pizza/src/app/app.module';
+import { AppModule } from '../../projects/pizza/src/app/app.module';
 
 const routes: Routes = [
   {path: 'pizza', loadChildren: () => import('../../projects/pizza/src/app/app.module').then(m=>m.PizzaSharedModule)},
