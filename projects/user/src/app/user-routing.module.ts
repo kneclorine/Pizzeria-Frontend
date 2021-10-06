@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   }
-].map(r=>({...r, data: { loadLayout: true }}))
+].map(r=>({...r, data: {path:`user/${r.path}` , loadLayout: true }}))
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
@@ -26,7 +26,7 @@ export class ChildRoutingModule { }
   imports: [
     RouterModule.forRoot([
       ...routes.map(r => {
-        return { ...r, path:`user/${r.path}`, data: { loadLayout: false } }
+        return { ...r, data: {path:`${r.path}` ,loadLayout: false } }
       })
       , { path: '', pathMatch: 'full', redirectTo: 'user/login' }])],
   exports: [RouterModule]

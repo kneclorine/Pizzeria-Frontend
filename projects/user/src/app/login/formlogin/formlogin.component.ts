@@ -28,7 +28,12 @@ export class FormloginComponent implements OnInit{
   }
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((data)=>{
-       this.pathLayout = data.path;
+      if(data.path==="user/login"){
+        this.pathLayout = "user/register"
+      }else{
+        this.pathLayout = "register";
+      }
+       
     })
   }
 }

@@ -1,0 +1,11 @@
+a{
+    margin: 2.5rem 0 0 0.125rem;
+    padding: 0.6875rem 7.2687rem 0.75rem 7.8375rem;
+    border-radius: 5px;
+    background-color: var(--red-red-500);
+    color: var(--white);
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration:none;
+}

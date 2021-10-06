@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CapAnchorComponent implements OnInit {
   @Input() text: string = '';
-  @Input() link: string = '';
+  @Input() href: string = '';
   constructor() { }
 
   ngOnInit() {
