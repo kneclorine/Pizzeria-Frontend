@@ -4,16 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RootRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { IngredientService } from './service/ingredient.service';
 import { IngredientBaseComponent } from './app.component';
-<<<<<<< HEAD
-import { CoreLibModule, DecoratorService, INTERCEPTORS, AuthorizationObserver } from 'core-lib';
-=======
 import { CoreLibModule, INTERCEPTORS } from 'core-lib';
->>>>>>> main
 import { ChildRoutingModule } from './app-routing.module';
 
-const providers: any[] = [INTERCEPTORS, IngredientService, AuthorizationObserver];
+const providers: any[] = [INTERCEPTORS];
 
 @NgModule({
   declarations: [	
