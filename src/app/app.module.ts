@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {CloudinaryModule} from '@cloudinary/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreLibModule, DecoratorService, INTERCEPTORS } from 'core-lib';
+import { CoreLibModule, INTERCEPTORS } from 'core-lib';
 import { InjectorDecorator } from 'core-lib';
 import { IngredientLibModule } from 'ingredient-lib';
 

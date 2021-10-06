@@ -6,11 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IngredientService } from './service/ingredient.service';
 import { IngredientBaseComponent } from './app.component';
-import { CoreLibModule, DecoratorService, INTERCEPTORS } from 'core-lib';
+import { CoreLibModule } from 'core-lib';
 import { ChildRoutingModule } from './app-routing.module';
 import { IngredientLibModule } from 'ingredient-lib';
 
-const providers: any[] = [INTERCEPTORS, IngredientService];
+const providers: any[] = [IngredientService];
 
 @NgModule({
   declarations: [	
@@ -28,7 +28,7 @@ const providers: any[] = [INTERCEPTORS, IngredientService];
   bootstrap: [IngredientBaseComponent]
 })
 export class IngredientBaseModule { 
-  constructor(private decoratorService: DecoratorService){}
+  constructor(){}
 }
 
 @NgModule({
