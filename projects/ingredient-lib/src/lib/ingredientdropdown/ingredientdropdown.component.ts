@@ -32,13 +32,16 @@ export class IngredientdropdownComponent implements OnInit {
       this.selectedIngredients.push(event);
     }
   }
-  removeIngredient(event:any){
-    if(event.target.tagName == "svg" || event.target.tagName == "path" ){
+  removeIngredient(event:Event){
+    //WorkArround: Cast to obtain dataSet
+   const nodes=  event.composedPath() as HTMLElement[];
+   const dataSet = nodes.filter(n=>n.dataset && n.dataset.action).map(n=>n.dataset)
+   const {id,action} = dataSet[0] || {};
+   
+    if(action == "2"){
       for(let i = 0; i < this.selectedIngredients.length; i++){
-        if(event.target.closest("div").id == this.selectedIngredients[i].id){
-          this.ingredients.push(this.selectedIngredients[i]);
-          this.selectedIngredients.splice(i, 1);
-        }
+        this.ingredients.push(this.selectedIngredients[i]);
+        this.selectedIngredients.splice(i, 1);
       }
     }
   }
