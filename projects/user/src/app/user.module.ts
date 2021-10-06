@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { INTERCEPTORS } from 'core-lib'; 
-import { DecoratorService } from 'core-lib';
 import { UserComponent } from './user.component';
 import { CoreLibModule } from 'core-lib';
 import { ChildRoutingModule, RootRoutingModule } from './user-routing.module';
@@ -41,7 +40,7 @@ const providers:any[] = [INTERCEPTORS]
   bootstrap: [UserComponent]
 })
 export class UserModule { 
-  constructor(private decoratorService: DecoratorService){
+  constructor(){
   }
 }
 
@@ -56,7 +55,7 @@ export class UserModule {
   providers: [UserService]
 })
 export class UserSharedModule {
-  constructor(private decoratorService: DecoratorService){
+  constructor(){
   }
   static forRoot(): ModuleWithProviders<UserModule> {
     

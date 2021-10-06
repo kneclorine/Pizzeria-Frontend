@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { DecoratorService } from './interceptor/decoratorservice';
+
 
 
 
@@ -38,5 +40,5 @@ import { SpinnerComponent } from './spinner/spinner.component';
   
 })
 export class CoreLibModule { 
-  constructor(){ }
+  constructor(private decoratorService: DecoratorService){ }
 }

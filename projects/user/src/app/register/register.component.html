@@ -1,4 +1,4 @@
 <user-layout *ngIf="loadLayout">
-  <user-formregister (submit)="onSubmit"></user-formregister>
+  <user-formregister (submit)="onSubmit($event)"></user-formregister>
 </user-layout>
-<user-formregister *ngIf="!loadLayout"  (submit)="onSubmit"></user-formregister>
+<user-formregister *ngIf="!loadLayout"  (submit)="onSubmit($event)"></user-formregister>
