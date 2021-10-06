@@ -3,8 +3,8 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreLibModule } from 'core-lib';
 import { AddComponent } from './add/add.component';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { PizzaRoutingModule } from './pizza-routing.module';
+import { PizzaComponent } from './pizza.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientLibModule } from 'ingredient-lib';
@@ -13,21 +13,21 @@ const providers: any[] = []
 
 @NgModule({
   declarations: [	
-    AppComponent,
+    PizzaComponent,
     AddComponent,
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    PizzaRoutingModule,
     FormsModule,
     HttpClientModule,
     CoreLibModule,
     IngredientLibModule,
   ],
   providers: providers,
-  bootstrap: [AppComponent]
+  bootstrap: [PizzaComponent]
 })
-export class AppModule {
+export class PizzaModule {
   constructor(){}
 }
 
@@ -35,7 +35,7 @@ export class AppModule {
 export class PizzaSharedModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: AppModule,
+      ngModule: PizzaModule,
       providers: providers,
     }
   }
