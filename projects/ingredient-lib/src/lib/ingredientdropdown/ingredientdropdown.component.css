@@ -14,5 +14,5 @@ select{
 }
 .ingredientList{
     display: grid;
-    grid-template-columns: repeat(2, 17rem);
+    grid-template-columns: repeat(auto-fit, 17rem);
 }
