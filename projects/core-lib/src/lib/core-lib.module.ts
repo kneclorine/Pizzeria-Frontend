@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DecoratorService } from './interceptor/decoratorservice';
+import { CapAnchorComponent } from './formcontrols/cap-anchor/cap-anchor.component';
 
 
 
@@ -23,7 +24,8 @@ import { DecoratorService } from './interceptor/decoratorservice';
     CapImgComponent,
     CapErrorComponent,
     CapImguploadComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CapAnchorComponent,
   ],
   imports: [
     ReactiveFormsModule,
@@ -36,6 +38,7 @@ import { DecoratorService } from './interceptor/decoratorservice';
     CapCheckboxComponent,
     CapImgComponent,
     CapImguploadComponent,
+    CapAnchorComponent,
   ],
   
 })

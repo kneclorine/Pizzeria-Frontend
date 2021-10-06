@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { UserLogin } from '../../logininterface';
 
 @Component({
@@ -7,9 +8,13 @@ import { UserLogin } from '../../logininterface';
   templateUrl: './formlogin.component.html',
   styleUrls: ['./formlogin.component.css']
 })
-export class FormloginComponent  {
-  @Output() submit = new EventEmitter<UserLogin>()
+export class FormloginComponent implements OnInit{
+  @Output() submit = new EventEmitter<UserLogin>();
 
+  constructor(private activatedRoute: ActivatedRoute){
+  }
+
+  pathLayout : string ='register';
   formGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
@@ -21,8 +26,9 @@ export class FormloginComponent  {
       this.submit.emit(this.formGroup.value)
     }
   }
-
-
-  
-
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data)=>{
+       this.pathLayout = data.path;
+    })
+  }
 }
