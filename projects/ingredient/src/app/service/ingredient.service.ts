@@ -14,7 +14,7 @@ export class IngredientService {
 
   constructor(public http: HttpClient) { }
 
-  //@Authorize()
+  @Authorize()
   getAll(): Observable<Ingredient []>{
     return <Observable<Ingredient []>> this.http.get(`http://localhost:9999/api/v1/ingredients`)
   }
@@ -25,7 +25,9 @@ export class IngredientService {
   }
 
   deleteIngredient(id: string) {
-    return this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`);
+    this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`).subscribe(data => {
+      console.log(data);
+    });
   }
 
   getIngredientById(id: string): Observable<Ingredient>{

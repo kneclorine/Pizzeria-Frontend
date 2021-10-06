@@ -6,10 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IngredientService } from './service/ingredient.service';
 import { IngredientBaseComponent } from './app.component';
-import { CoreLibModule, DecoratorService, INTERCEPTORS } from 'core-lib';
+import { CoreLibModule, DecoratorService, INTERCEPTORS, AuthorizationObserver } from 'core-lib';
 import { ChildRoutingModule } from './app-routing.module';
 
-const providers: any[] = [INTERCEPTORS, IngredientService];
+const providers: any[] = [INTERCEPTORS, IngredientService, AuthorizationObserver];
 
 @NgModule({
   declarations: [	
@@ -20,7 +20,8 @@ const providers: any[] = [INTERCEPTORS, IngredientService];
     RootRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CoreLibModule
+    CoreLibModule,
+    
   ],
   providers: providers,
   bootstrap: [IngredientBaseComponent]

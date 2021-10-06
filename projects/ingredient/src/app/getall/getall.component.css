@@ -1,0 +1,21 @@
+.title{
+    font-family: Quicksand;
+    font-size: 24px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--black);
+}
+
+section {
+    display:grid;
+    margin-top: 2.5rem;
+    margin-left: 2.5rem;
+}
+
+.containerget{ 
+    width: 100%;
+}

@@ -25,11 +25,4 @@ export class IngredientItemComponent{
         return `${name}(${price})`;
     }
 
-    handlerclick(event:any){ 
-        if(event.target.tagName == "svg") {
-            console.log(this.ingredient.id)
-          this.ingredientService.deleteIngredient(this.ingredient.id)
-        }
-       
-      }
 }

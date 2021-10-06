@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Actions } from '../service/actions';
 import { Ingredient } from '../service/ingredient';
@@ -11,11 +11,11 @@ import { IngredientService } from '../service/ingredient.service';
 })
 export class GetallComponent implements OnInit {
 
-  ingredients: Ingredient[] = new Array<Ingredient>()
+  @Input() ingredients: Ingredient[] = new Array<Ingredient>()
   private dispose: Subscription | null = null;
   selected: Actions = Actions.selected
 
-  constructor(private ingredientService: IngredientService){}
+  constructor(private ingredientService: IngredientService) { }
 
   ngOnDestroy(): void {
     this.dispose && this.dispose.unsubscribe();
@@ -25,6 +25,16 @@ export class GetallComponent implements OnInit {
     this.dispose = this.ingredientService.getAll().subscribe(data => this.ingredients = data);
   }
 
-  
+  handlerclick(event: any) {
 
+    if (event.target.tagName == "svg" || event.target.tagName == "path") {
+      for (let i = 0; i < this.ingredients.length; i++) {
+        if (event.target.closest("div").id == this.ingredients[i].id) {
+          this.ingredientService.deleteIngredient(this.ingredients[i].id);
+          this.ingredients.splice(i, 1);
+        }
+      }
+    }
+    
+  }
 }

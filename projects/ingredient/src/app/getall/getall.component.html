@@ -1,9 +1,9 @@
-<div class="container">
+<div class="containerget">
   <section>
-      <h2>
+      <h2 class="title">
           Todos los ingredientes
       </h2>
-      <div >
+      <div (click) = "handlerclick($event)">
           <cap-ingredient-item [ingredient] = "ingredient" *ngFor="let ingredient of ingredients"></cap-ingredient-item>
       </div>
   </section>
