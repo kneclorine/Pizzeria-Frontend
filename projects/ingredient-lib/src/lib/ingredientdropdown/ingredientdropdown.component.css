@@ -1,18 +1,13 @@
-h1{
-    font-family: Quicksand;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
 select{
     margin-top: 1.5rem;
     height: 2rem;
     width: 32rem;
     border-radius: 0.3rem;
-    font-family: Quicksand;
     font-weight: bold;
     font-size: 1rem;
 }
 .ingredientList{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 17rem);
+    grid-column-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(32.125rem, 1fr));
 }

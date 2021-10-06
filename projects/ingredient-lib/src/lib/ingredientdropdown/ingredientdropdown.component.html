@@ -1,4 +1,4 @@
-<h1>Añade los ingredientes</h1>
+<h2>Añade los ingredientes</h2>
 <select [(ngModel)]="default" (ngModelChange)="addIngredient($event)">
   <option [ngValue]="default" disabled selected>Selecciona los ingredientes</option>
   <option *ngFor="let ingredient of ingredients" [ngValue]="ingredient">{{ingredient.name}}</option>

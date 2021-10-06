@@ -1,10 +1,4 @@
-h1{
-    font-family: Quicksand;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
 .dropzone{
-    width: 32rem;
     height: 19.0625rem;
     margin-top: 1.5rem;
     border: dashed 1px #979797;
