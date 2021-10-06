@@ -7,12 +7,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IngredientBaseComponent } from './ingredient.component';
 import { CoreLibModule, INTERCEPTORS } from 'core-lib';
 import { ChildRoutingModule } from './ingredient-routing.module';
-import { IngredientItemComponent } from './ingredientglobal/ingredientitem/ingredientitem.component';
-import { FormComponent } from './ingredientglobal/form/form.component';
-import { GetallComponent } from './ingredientglobal/getall/getall.component';
+import { FormComponent } from './getall/form/form.component';
 import { CommonModule } from '@angular/common';
-import { IngredientglobalComponent} from './ingredientglobal/ingredientglobal.component' ;
 import { IngredientService } from './service/ingredient.service';
+import { IngredientItemComponent } from './getall/ingredientitem/ingredientitem.component';
+import { GetallComponent } from './getall/getall.component';
 
 const providers: any[] = [INTERCEPTORS,];
 
@@ -22,7 +21,6 @@ const providers: any[] = [INTERCEPTORS,];
     IngredientItemComponent,
     FormComponent,
     GetallComponent,
-    IngredientglobalComponent
    ],
   imports: [
     CommonModule,

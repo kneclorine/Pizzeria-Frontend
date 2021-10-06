@@ -1,12 +1,12 @@
 <section class="containeradd" >
   <h2 class="titleadd">
-      Crea un nuevo ingrediente
+      Crea o actualiza un ingrediente
   </h2>
-  <form class="addIngredient" [formGroup]="addForm" >
+  <form class="addIngredient" [formGroup]="addForm" (submit) = "onSubmit()">
     <cap-input  [formGroup]="addForm" name="name" type="text" placeholder="Nombre * ">
     </cap-input>
     <cap-input  [formGroup]="addForm" name="price" type="text" placeholder="000,00€*">
     </cap-input>
-    <cap-button type="submit" text="Crear nuevo ingrediente" ></cap-button>
+    <cap-button  text="Crear/Actualizar ingrediente" ></cap-button>
   </form>
 </section>

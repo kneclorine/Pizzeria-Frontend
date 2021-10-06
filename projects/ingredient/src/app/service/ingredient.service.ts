@@ -25,9 +25,7 @@ export class IngredientService {
   }
 
   deleteIngredient(id: string) {
-    this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`).subscribe(data => {
-      console.log(data);
-    });
+    this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`).subscribe()
   }
 
   getIngredientById(id: string): Observable<Ingredient>{
