@@ -1,15 +1,4 @@
-<div class="containerLogin" >
-    <span class="titleLogin">
-        <span class="titleLogin2">Inicia sesión</span>
-        y pide tu pizza favorita
-      </span>
-    <form class="login" [formGroup]="loginForm">
-      <cap-input  [formGroup]="loginForm" name="email" type="text" placeholder="Tu Email * ">
-      </cap-input>
-      <cap-input  [formGroup]="loginForm" name="password" type="password" placeholder="Contraseña *">
-      </cap-input>
-      <cap-button type="submit" text="Empezar pedido" (BtnClickEmt)="onSubmit()" ></cap-button>
-    </form>
-    <span class="register">¿Aún no estás registrado?</span>
-    <cap-button type="submit" text="Registrarme" (BtnClickEmt)="onRedirect()" ></cap-button>
-  </div>
+<user-layout *ngIf="loadLayout">
+  <user-formlogin [formGroup]= "loginForm" (submit)="onSubmit()" (btnClickEmt)="onRedirect()"></user-formlogin>
+</user-layout>
+<user-formlogin *ngIf="!loadLayout" [formGroup]= "loginForm" (submit)="onSubmit()" (btnClickEmt)="onRedirect()"></user-formlogin>
