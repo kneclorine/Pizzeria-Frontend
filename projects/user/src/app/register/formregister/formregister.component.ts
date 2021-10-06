@@ -9,6 +9,7 @@ import { User } from '../../userinterface';
 })
 export class FormRegisterComponent {
   @Output() submit = new EventEmitter<User>()
+  
   formGroup = new FormGroup({
     name: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),

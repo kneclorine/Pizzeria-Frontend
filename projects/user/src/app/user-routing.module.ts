@@ -26,9 +26,9 @@ export class ChildRoutingModule { }
   imports: [
     RouterModule.forRoot([
       ...routes.map(r => {
-        return { ...r, data: { loadLayout: false } }
+        return { ...r, path:`user/${r.path}`, data: { loadLayout: false } }
       })
-      , { path: '', pathMatch: 'full', redirectTo: 'login' }])],
+      , { path: '', pathMatch: 'full', redirectTo: 'user/login' }])],
   exports: [RouterModule]
 })
 export class RootRoutingModule { }

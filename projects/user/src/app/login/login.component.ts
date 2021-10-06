@@ -1,31 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
+import { IUserService } from '../services/interfaceuserservice';
+import { IndexeddbService, LayoutRouter }  from 'core-lib';
+import { UserLogin } from '../logininterface';
 import { UserService } from '../services/userservices';
-import { IndexeddbService }  from 'core-lib';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends LayoutRouter implements OnInit {
 
   loadLayout:boolean = true;
-  constructor(private userservice: UserService, 
+  constructor(
+    private userService: UserService, 
     private router: Router, 
-    private activeRoute : ActivatedRoute,
-    private indexeddbService: IndexeddbService) { 
-    
+    private activeRouter : ActivatedRoute,
+    private indexeddbService: IndexeddbService){ 
+      super(activeRouter);
    }
 
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required)
-  });
-  
-
-  onSubmit() {
-    const observer = this.userservice.login(this.loginForm.value);
+  onSubmit(user: UserLogin) {
+    const observer = this.userService.login(user);
     const unsuscribe = observer.subscribe((data) => {
       if(data){
         this.indexeddbService.removeUser();
@@ -34,12 +31,9 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  onRedirect(){
-    this.router.navigate(["user/register"]);
-  }
   
   ngOnInit(): void {
-    this.activeRoute.data.subscribe((data)=>{
+    this.activeRouter.data.subscribe((data)=>{
        this.loadLayout = data.loadLayout
     })
   }

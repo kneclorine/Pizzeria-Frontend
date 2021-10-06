@@ -1,4 +1,6 @@
 <user-layout *ngIf="loadLayout">
-  <user-formlogin [formGroup]= "loginForm" (submit)="onSubmit()"></user-formlogin>
+  <user-formlogin (submit)="onSubmit"></user-formlogin>
+    <a class="redirect" href="user/register" >Registrarme</a>
 </user-layout>
-<user-formlogin *ngIf="!loadLayout" [formGroup]= "loginForm" (submit)="onSubmit()" ></user-formlogin>
+<user-formlogin *ngIf="!loadLayout" (submit)="onSubmit" ></user-formlogin>
+    <a class="redirect" href="register" >Registrarme</a>
