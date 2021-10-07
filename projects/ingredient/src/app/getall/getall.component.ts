@@ -12,47 +12,64 @@ import { IngredientService } from '../service/ingredient.service';
 export class GetallComponent implements OnInit {
 
   @Input() ingredients: Ingredient[] = new Array<Ingredient>()
-  private dispose: Subscription | null = null;
+  private disposables: Subscription[] | null = null;
   selectedIngredient: Ingredient | undefined = undefined;
 
   constructor(private ingredientService: IngredientService) { }
 
   ngOnDestroy(): void {
-    this.dispose && this.dispose.unsubscribe();
+    this.disposables?.forEach(dispose => {
+      dispose && dispose.unsubscribe();
+    });
+    this.disposables = [];
   }
 
   ngOnInit(): void {
-    this.dispose = this.ingredientService.getAll().subscribe(data => this.ingredients = data);
+    const dispose = this.ingredientService.getAll().subscribe(data => this.ingredients = data);
+    this.disposables?.push(dispose)
   }
-  update(ingredient:IngredientUpdateDTO){
+  update(ingredient: IngredientUpdateDTO) {
+    this.selectedIngredient = ingredient;
+    let dispose: Subscription | null = null;
+    dispose = this.ingredientService.updateIngredient(ingredient.id, ingredient).subscribe((data) => {
+      this.ingredients.push(data);
+      this.initializeSelectedIngredient();
+      dispose && dispose.unsubscribe();
 
+    })
   }
-  add(ingredient:IngredientCreateDTO){
-     this.selectedIngredient = {id: '',...ingredient};
-      this.ingredientService.createIngredient(ingredient).subscribe((data)=>{
-        this.ingredients.push(data);
-        this.initializeSelectedIngredient();
-      })
+  add(ingredient: IngredientCreateDTO) {
+    this.selectedIngredient = { id: '', ...ingredient };
+    let dispose: Subscription | null = null;
+    dispose = this.ingredientService.createIngredient(ingredient).subscribe((data) => {
+      this.ingredients.push(data);
+      this.initializeSelectedIngredient();
+      dispose && dispose.unsubscribe();
+    })
   }
 
-  private initializeSelectedIngredient(){
-    this.selectedIngredient= undefined;
+  private initializeSelectedIngredient() {
+    this.selectedIngredient = undefined;
   }
   handlerclick(event: Event) {
-
-    const nodes=  event.composedPath() as HTMLElement[];
-    const dataSet = nodes.filter(n=>n.dataset && n.dataset.action).map(n=>n.dataset)
-    const {id,action} = dataSet[0] || {};
+    const nodes = event.composedPath() as HTMLElement[];
+    const dataSet = nodes.filter(n => n.dataset && n.dataset.action).map(n => n.dataset)
+    const { id, action } = dataSet[0] || {};
     const ingredient = this.ingredients.find(element => id === element.id);
-    if(action === Actions.remove.toString()){
+    if (action === Actions.remove.toString()) {
       if (ingredient) {
-        this.ingredientService.deleteIngredient(ingredient.id).subscribe(()=>{
+        this.ingredientService.deleteIngredient(ingredient.id).subscribe(() => {
           this.ingredients.splice(this.ingredients.indexOf(ingredient), 1);
         });
-        
       }
-    }else if(action === Actions.selected.toString()) {
-      this.selectedIngredient = ingredient;
+    } else if (action === Actions.selected.toString()) {
+      this.ingredientService.updateIngredient(ingredient!.id, this.selectedIngredient!)
+      let dispose: Subscription | null = null;
+      dispose = this.ingredientService.updateIngredient(ingredient!.id, this.selectedIngredient!).subscribe((data) => {
+        this.ingredients.push(data);
+        this.initializeSelectedIngredient();
+        dispose && dispose.unsubscribe();
+      })
     }
   }
 }

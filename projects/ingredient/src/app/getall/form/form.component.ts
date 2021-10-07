@@ -42,5 +42,6 @@ export class FormComponent implements OnChanges {
         this.add.emit(this.addForm.value) :
         this.update.emit(this.addForm.value)
     }
+    this.addForm.reset()
   }
 }

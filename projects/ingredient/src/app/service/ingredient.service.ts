@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ingredient, IngredientCreateDTO } from './ingredient';
+import { Ingredient, IngredientCreateDTO, IngredientUpdateDTO } from './ingredient';
 import { Authorize } from 'core-lib';
 
 @Injectable({
@@ -31,4 +31,9 @@ export class IngredientService {
   getIngredientById(id: string): Observable<Ingredient>{
     return this.http.get<Ingredient>(`http://localhost:9999/api/v1/ingredients/${id}`);
   }
+
+  updateIngredient(id: string, ingredient: IngredientUpdateDTO): Observable<IngredientUpdateDTO>{
+    return this.http.put<IngredientUpdateDTO>(`http://localhost:9999/api/v1/ingredients/${id}`, ingredient);
+  }
+
 }
