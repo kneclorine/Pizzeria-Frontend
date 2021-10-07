@@ -9,4 +9,4 @@
       </div>
   </section>
 </div>
-<app-form></app-form>
+<app-form [ingredient]="selectedIngredient" (add)="add($event)" (update)="update($event)"></app-form>

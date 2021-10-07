@@ -9,26 +9,38 @@ import { Ingredient, IngredientCreateDTO, IngredientUpdateDTO } from '../../serv
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnChanges {
-  @Input() ingredient: Ingredient | null = null;
-  @Output() add = new EventEmitter<IngredientCreateDTO>();
-  @Output() update = new EventEmitter<IngredientUpdateDTO>();
+  @Input() ingredient: Ingredient | undefined = undefined;
+  @Output() add: EventEmitter<IngredientCreateDTO> = new EventEmitter<IngredientCreateDTO>();
+  @Output() update: EventEmitter<IngredientUpdateDTO> = new EventEmitter<IngredientUpdateDTO>();
 
-  private add2: Actions = Actions.add
-  
-  constructor(
-    ) { }
+  private action: Actions = Actions.add
 
   addForm = new FormGroup({
+    id : new FormControl(''),
     name: new FormControl('', Validators.required),
-    price: new FormControl('', Validators.required)
+    price: new FormControl(0, Validators.required)
   });
 
-  ngOnChanges(changes: SimpleChanges): void{
-    if ( changes){
-      
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.action = Actions.add;
+    if (changes && changes.ingredient && changes.ingredient.currentValue) {
+      this.action = Actions.update;
     }
+    this.initializeForm()
   }
-  onSubmit(){
-    
+  private initializeForm() {
+    if (this.ingredient) {
+      this.addForm.setValue(this.ingredient);
+      return ;
+    }
+    this.addForm.reset()
+  }
+  onSubmit() {
+    if (this.addForm.valid) {
+      this.action === Actions.add ?
+        this.add.emit(this.addForm.value) :
+        this.update.emit(this.addForm.value)
+    }
   }
 }

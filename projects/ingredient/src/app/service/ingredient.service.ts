@@ -20,12 +20,12 @@ export class IngredientService {
   }
 
   @Authorize()
-  createIngredient(ingredient: IngredientCreateDTO): Observable<Object>{
-    return this.http.post(`http://localhost:9999/api/v1/ingredients`, ingredient);
+  createIngredient(ingredient: IngredientCreateDTO): Observable<Ingredient>{
+    return this.http.post<Ingredient>(`http://localhost:9999/api/v1/ingredients`, ingredient);
   }
 
   deleteIngredient(id: string) {
-    this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`).subscribe()
+    return this.http.delete(`http://localhost:9999/api/v1/ingredients/${id}`)
   }
 
   getIngredientById(id: string): Observable<Ingredient>{
