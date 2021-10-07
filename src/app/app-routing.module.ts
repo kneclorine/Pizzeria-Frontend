@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PizzaModule} from '../../projects/pizza/src/app/pizza.module';
 
 const routes: Routes = [
   {path: 'pizza', loadChildren: () => import('../../projects/pizza/src/app/pizza.module').then(m=>m.PizzaSharedModule)},
@@ -11,7 +10,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), 
-    PizzaModule],
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

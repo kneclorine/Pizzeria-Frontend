@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreLibModule } from 'core-lib';
 import { AddComponent } from './add/add.component';
-import { PizzaRoutingModule } from './pizza-routing.module';
+import { ChildRoutingModule, RootRoutingModule } from './pizza-routing.module';
 import { PizzaComponent } from './pizza.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { IngredientLibModule } from 'ingredient-lib';
+import { CommonModule } from '@angular/common';
 
 const providers: any[] = []
 
@@ -17,8 +17,9 @@ const providers: any[] = []
     AddComponent,
    ],
   imports: [
+    CommonModule,
     BrowserModule,
-    PizzaRoutingModule,
+    RootRoutingModule,
     FormsModule,
     HttpClientModule,
     CoreLibModule,
@@ -31,9 +32,14 @@ export class PizzaModule {
   constructor(){}
 }
 
-@NgModule({})
+@NgModule({
+  imports:[
+    FormsModule,
+    ChildRoutingModule,
+  ]
+})
 export class PizzaSharedModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<PizzaModule> {
     return {
       ngModule: PizzaModule,
       providers: providers,

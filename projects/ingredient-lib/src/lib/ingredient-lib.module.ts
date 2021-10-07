@@ -12,7 +12,6 @@ import { IngredientItemComponent } from './ingredientitem/ingredientitem.compone
     IngredientdropdownComponent
   ],
   imports: [
-    BrowserModule,
     FormsModule,
   ],
   exports: [

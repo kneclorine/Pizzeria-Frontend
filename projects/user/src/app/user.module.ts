@@ -47,9 +47,7 @@ export class UserModule {
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    CoreLibModule,
     ChildRoutingModule,
-    HttpClientModule,
   ],
   providers: [UserService]
 })
