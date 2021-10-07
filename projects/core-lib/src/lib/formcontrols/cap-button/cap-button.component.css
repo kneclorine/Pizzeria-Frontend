@@ -5,12 +5,8 @@ button{
     border-radius: 5px;
     background-color: var(--red-red-600);
     color: var(--white);
-    font-family: Quicksand;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
     letter-spacing: normal;
     text-align: center;
 }

@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Actions } from '../../service/actions';
+import { Actions } from 'ingredient-lib';
 import { Ingredient } from '../../service/ingredient';
-import { IngredientService } from '../../service/ingredient.service';
+import { IngredientService } from 'ingredient-lib';
 
 @Component({
   selector: 'app-getall',

@@ -1,0 +1,26 @@
+section{
+    width: 45%;
+}
+.add-form{
+    padding-left: 3rem;
+}
+.name{
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+.button{
+    width: 25%;
+}
+@media only screen and (max-width: 480px){
+    section{
+        width: 100%;
+    }
+    .add-form{
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .name{
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+    }
+}

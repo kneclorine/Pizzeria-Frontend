@@ -4,22 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RootRoutingModule } from './ingredient-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { IngredientBaseComponent } from './ingredient.component';
+import { IngredientComponent } from './ingredient.component';
 import { CoreLibModule, INTERCEPTORS } from 'core-lib';
 import { ChildRoutingModule } from './ingredient-routing.module';
-import { IngredientItemComponent } from './ingredientglobal/ingredientitem/ingredientitem.component';
 import { FormComponent } from './ingredientglobal/form/form.component';
 import { GetallComponent } from './ingredientglobal/getall/getall.component';
 import { CommonModule } from '@angular/common';
 import { IngredientglobalComponent} from './ingredientglobal/ingredientglobal.component' ;
-import { IngredientService } from './service/ingredient.service';
+import { IngredientService } from 'ingredient-lib';
+import { IngredientLibModule } from 'ingredient-lib';
 
 const providers: any[] = [INTERCEPTORS,];
 
 @NgModule({
   declarations: [	
-    IngredientBaseComponent,
-    IngredientItemComponent,
+    IngredientComponent,
     FormComponent,
     GetallComponent,
     IngredientglobalComponent
@@ -31,12 +30,13 @@ const providers: any[] = [INTERCEPTORS,];
     HttpClientModule,
     ReactiveFormsModule,
     CoreLibModule,
+    IngredientLibModule,
     
   ],
   providers: providers,
-  bootstrap: [IngredientBaseComponent]
+  bootstrap: [IngredientComponent]
 })
-export class IngredientBaseModule { 
+export class IngredientModule { 
   constructor(){}
 }
 
@@ -48,11 +48,13 @@ export class IngredientBaseModule {
     HttpClientModule,
   ],
   providers: [IngredientService]
+
+
 })
 export class IngredientSharedModule {
-  static forRoot(): ModuleWithProviders<IngredientBaseModule> {
+  static forRoot(): ModuleWithProviders<IngredientModule> {
     return {
-      ngModule: IngredientBaseModule,
+      ngModule: IngredientModule,
       providers: providers
     }
   }

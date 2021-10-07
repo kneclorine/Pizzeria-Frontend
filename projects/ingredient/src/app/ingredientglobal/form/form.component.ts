@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IngredientCreateDTO, IngredientUpdateDTO } from '../../service/ingredient';
-import { IngredientService } from '../../service/ingredient.service';
+import { IngredientService } from 'ingredient-lib';
 
 @Component({
   selector: 'app-form',

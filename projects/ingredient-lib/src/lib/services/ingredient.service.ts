@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ingredient, IngredientCreateDTO } from './ingredient';
+import { Ingredient, IngredientCreateDTO} from './ingredient';
 import { Authorize } from 'core-lib';
 
 @Injectable({

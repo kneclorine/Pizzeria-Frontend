@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Authorize } from '../../services/authorize';
 import { environment } from './enviroment';
 
 @Component({
@@ -13,6 +14,7 @@ export class CapImguploadComponent {
   
   constructor(private http: HttpClient){ }
 
+  @Authorize()
   onFileSelected(event: any){
     const file: File = event.target.files[0];
     const fileReader: FileReader = new FileReader();
@@ -30,7 +32,7 @@ export class CapImguploadComponent {
 
       const upload$ = this.http.post(environment.url + "/api/v1/images", formData);
       upload$.subscribe((data)=>{
-        //Que se hace con el uuid
+        //Data es el uuid de la imagen que hemos subido
       });
     }
   }

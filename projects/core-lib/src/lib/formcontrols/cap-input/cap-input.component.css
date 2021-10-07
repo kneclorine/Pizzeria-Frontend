@@ -5,7 +5,6 @@
     width: 100%;
 }
 .input-container{
-    font-family: Quicksand;
     font-size: 18px;
     padding: 0.5rem;
     border-radius: 5px;
@@ -20,7 +19,6 @@ input{
 }
 
 label{
-    font-family: Quicksand;
     font-weight: bold;
     font-size: 1.5rem;
 }

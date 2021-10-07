@@ -11,7 +11,8 @@ import { CapErrorComponent } from './formcontrols/cap-error/cap-error.component'
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DecoratorService } from './interceptor/decoratorservice';
 import { CapAnchorComponent } from './formcontrols/cap-anchor/cap-anchor.component';
-
+import { INTERCEPTORS } from './interceptor';
+import { AuthorizationObserver } from './services/authorizationobserver';
 
 
 
@@ -40,6 +41,10 @@ import { CapAnchorComponent } from './formcontrols/cap-anchor/cap-anchor.compone
     CapImguploadComponent,
     CapAnchorComponent,
   ],
+  providers:[
+    INTERCEPTORS,
+    AuthorizationObserver
+  ]
   
 })
 export class CoreLibModule { 

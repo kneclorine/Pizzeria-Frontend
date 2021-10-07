@@ -2,7 +2,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { INTERCEPTORS } from 'core-lib'; 
 import { UserComponent } from './user.component';
 import { CoreLibModule } from 'core-lib';
 import { ChildRoutingModule, RootRoutingModule } from './user-routing.module';
@@ -15,7 +14,7 @@ import { FormRegisterComponent } from './register/formregister/formregister.comp
 import { FormloginComponent } from './login/formlogin/formlogin.component';
 import { UserService } from './services/userservices';
 
-const providers:any[] = [INTERCEPTORS]
+const providers:any[] = []
 
 @NgModule({
   declarations: [
@@ -48,9 +47,7 @@ export class UserModule {
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    CoreLibModule,
     ChildRoutingModule,
-    HttpClientModule,
   ],
   providers: [UserService]
 })

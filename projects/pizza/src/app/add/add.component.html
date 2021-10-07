@@ -1,4 +1,14 @@
-<cap-imgupload></cap-imgupload>
-<br><br>
-<cap-input class="name" label="Añade un nombre" placeholder="Nombre"></cap-input>
-<br>
+<form class="add-form" >
+    <section>
+        <h2>Añade una imagen</h2>
+        <cap-imgupload></cap-imgupload>
+        <h2 class="name">Añade un nombre</h2>
+        <cap-input placeholder="Nombre"></cap-input>
+    </section>
+    <section>
+        <app-ingredientdropdown></app-ingredientdropdown>
+    </section>
+    <section class="button">
+        <cap-button type="submit" text="Añadir pizza a la carta"></cap-button>
+    </section>
+</form>

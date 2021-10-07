@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreLibModule, INTERCEPTORS } from 'core-lib';
 import { InjectorDecorator } from 'core-lib';
+import { IngredientLibModule } from 'ingredient-lib';
+import { HttpClientModule } from '@angular/common/http';
 
 const providers:any[] = [INTERCEPTORS]
 @NgModule({
@@ -13,9 +15,11 @@ const providers:any[] = [INTERCEPTORS]
   ],
   imports: [
     CoreLibModule,
+    IngredientLibModule,
     CloudinaryModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [providers],
   bootstrap: [AppComponent]

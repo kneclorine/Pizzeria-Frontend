@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IngredientService } from '../service/ingredient.service';
+import { IngredientService } from 'ingredient-lib';
 
 @Component({
   selector: 'app-ingredientglobal',

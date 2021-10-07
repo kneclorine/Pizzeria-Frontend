@@ -1,0 +1,21 @@
+select{
+    height: 2rem;
+    width: 100%;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+}
+.ingredientList{
+    width: 200%;
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+}
+
+@media only screen and (max-width: 480px){
+    .ingredientList{
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(45%, 1fr);
+    }
+}
