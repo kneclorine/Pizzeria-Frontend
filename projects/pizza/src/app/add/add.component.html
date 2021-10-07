@@ -1,13 +1,14 @@
-<form action="" >
-<section>
-    <h2>Añade una imagen</h2>
-    <cap-imgupload></cap-imgupload>
-    <cap-input class="name" placeholder="Nombre" label="Añade un nombre"></cap-input>
-</section>
-<section>
-    <app-ingredientdropdown></app-ingredientdropdown>
-</section>
-<section>
-    <cap-button type="submit" text="Añadir pizza a la carta"></cap-button>
-</section>
+<form class="add-form" >
+    <section>
+        <h2>Añade una imagen</h2>
+        <cap-imgupload></cap-imgupload>
+        <h2 class="name">Añade un nombre</h2>
+        <cap-input placeholder="Nombre"></cap-input>
+    </section>
+    <section>
+        <app-ingredientdropdown></app-ingredientdropdown>
+    </section>
+    <section class="button">
+        <cap-button type="submit" text="Añadir pizza a la carta"></cap-button>
+    </section>
 </form>
